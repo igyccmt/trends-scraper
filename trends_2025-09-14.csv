@@ -1,19 +1,4 @@
-Timestamp,Query,Top,Rising,Success,Error
-2025-09-14T21:57:18.223515,türkiye basketbol maçı,türkiye basketbol maçı son dakika; türkiye basketbol maçı güncel,,True,
-2025-09-14T21:57:18.724272,fenerbahçe,fenerbahçe güncel; fenerbahçe son dakika,,True,
-2025-09-14T21:57:19.224837,manchester city - manchester united,manchester city - manchester united son dakika; manchester city - manchester united güncel,,True,
-2025-09-14T21:57:19.725878,amed - pendikspor,amed - pendikspor son dakika; amed - pendikspor güncel,,True,
-2025-09-14T21:57:20.226903,alperen şengün,alperen şengün güncel; alperen şengün son dakika,,True,
-2025-09-14T21:57:20.727454,adem bona,adem bona son dakika; adem bona güncel,,True,
-2025-09-14T21:57:21.227887,gaziantep fk - kocaelispor,gaziantep fk - kocaelispor son dakika; gaziantep fk - kocaelispor güncel,,True,
-2025-09-14T21:57:21.728793,barcelona - valencia,barcelona - valencia son dakika; barcelona - valencia güncel,,True,
-2025-09-14T21:57:22.229790,kayserispor - göztepe,kayserispor - göztepe güncel; kayserispor - göztepe son dakika,,True,
-2025-09-14T21:57:22.731019,larkin,larkin son dakika; larkin güncel,,True,
-2025-09-14T21:57:23.231532,franz wagner,franz wagner güncel; franz wagner son dakika,,True,
-2025-09-14T21:57:23.732539,burnley - liverpool,burnley - liverpool güncel; burnley - liverpool son dakika,,True,
-2025-09-14T21:57:24.233506,psg - lens,psg - lens güncel; psg - lens son dakika,,True,
-2025-09-14T21:57:24.734537,cedi osman nereli,cedi osman nereli güncel; cedi osman nereli son dakika,,True,
-2025-09-14T21:57:25.235563,okay yokuşlu,okay yokuşlu güncel; okay yokuşlu son dakika,,True,
+timestamp,query,related_top,related_rising
 2025-09-14T22:08:29.657677,türkiye basketbol maçı,"türkiye basketbol maçı güncel, türkiye basketbol maçı son dakika",
 2025-09-14T22:08:30.158659,fenerbahçe - trabzonspor maç kadrosu,"fenerbahçe - trabzonspor maç kadrosu özet, fenerbahçe - trabzonspor maç kadrosu gol, fenerbahçe - trabzonspor maç kadrosu güncel, fenerbahçe - trabzonspor maç kadrosu iddaa, fenerbahçe - trabzonspor maç kadrosu son dakika","sonuç fenerbahçe - trabzonspor maç kadrosu haberleri, fenerbahçe - trabzonspor maç kadrosu canlı son dakika, fenerbahçe - trabzonspor maç kadrosu izle son dakika, canlı fenerbahçe - trabzonspor maç kadrosu haberleri, izle fenerbahçe - trabzonspor maç kadrosu haberleri"
 2025-09-14T22:08:30.659694,manchester city - manchester united,"manchester city - manchester united son dakika, manchester city - manchester united güncel",
