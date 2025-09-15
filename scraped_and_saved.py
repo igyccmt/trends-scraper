@@ -11,27 +11,7 @@ import random
 import re
 
 def scrape_trends_from_mz3ric():
-    """Scrape trends specifically from mZ3RIc class elements"""
-    print("mZ3RIc classından trendler alınıyor...")
-    
-    user_agents = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-    ]
-    
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
-    options.add_argument(f'--user-agent={random.choice(user_agents)}')
-    options.add_argument('--window-size=1920,1080')
-    
-def scrape_trends_from_mz3ric():
-    """Scrape first 50 trends and their search volumes"""
+    """Scrape first 50 trends (with optional volumes)"""
     print("mZ3RIc classından trendler alınıyor...")
 
     user_agents = [
@@ -64,13 +44,20 @@ def scrape_trends_from_mz3ric():
         items = driver.find_elements(By.CSS_SELECTOR, "div.feed-item")
         for item in items:
             try:
+                # query
                 title_el = item.find_element(By.CSS_SELECTOR, "div.mZ3RIc")
-                volume_el = item.find_element(By.CSS_SELECTOR, "div.lqv0Cb")  # ✅ fixed
-                title = title_el.text.strip()
-                volume = volume_el.text.strip()
-                if title and title not in seen:
-                    seen.add(title)
-                    trends.append({"query": title, "volume": volume})
+                query = title_el.text.strip()
+
+                # volume (optional)
+                try:
+                    volume_el = item.find_element(By.CSS_SELECTOR, "div.lqv0Cb")
+                    volume = volume_el.text.strip()
+                except:
+                    volume = ""
+
+                if query and query not in seen:
+                    seen.add(query)
+                    trends.append({"query": query, "volume": volume})
                     if len(trends) >= 50:
                         break
             except:
