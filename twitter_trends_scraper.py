@@ -227,6 +227,27 @@ def save_to_csv(trends, filename="twitter_trends.csv"):
             ])
     return filename
 
+import subprocess
+
+def git_push(files, message="Update Twitter trends"):
+    """Commit and push given files to GitHub"""
+    try:
+        # Stage files
+        subprocess.run(["git", "add"] + files, check=True)
+
+        # Commit (skip if nothing to commit)
+        subprocess.run(
+            ["git", "commit", "-m", message],
+            check=True
+        )
+
+        # Push
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+
+        print("✓ Changes pushed to GitHub")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Git push failed: {e}")
+
 if __name__ == "__main__":
     print("=" * 60)
     print("TWITTER TRENDS SCRAPER (SELENIUM)")
@@ -244,7 +265,10 @@ if __name__ == "__main__":
 
         print(f"\nTop {min(10, len(trends))} Twitter trends:")
         for t in trends[:10]:
-            print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
+        print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
+        # Push both files to GitHub
+        git_push([json_file, csv_file], "Update Twitter trends")
+
     else:
         print("❌ No trends found or error occurred")
 
