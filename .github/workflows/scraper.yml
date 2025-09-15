@@ -1,8 +1,0 @@
-cd /home/igyccmt/trends-scraper
-git rm .github/workflows/scraper.yml
-git commit -m "Remove GitHub Actions workflow"
-git push origin main
-
-git rm -r .github/workflows
-git commit -m "Remove all GitHub Actions workflows"
-git push origin main
