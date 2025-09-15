@@ -9,10 +9,15 @@ import json
 import time
 import random
 import re
-import csv
-import os
-import sys
-import subprocess
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import random
 
 def scrape_trends_from_mz3ric():
     """Scrape first 50 Google Trends daily searches (query + volume)"""
@@ -36,58 +41,52 @@ def scrape_trends_from_mz3ric():
     options.add_argument(f'--user-agent={random.choice(user_agents)}')
     options.add_argument('--window-size=1920,1080')
 
-    driver = None
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get("https://trends.google.com/trends/trendingsearches/daily?geo=TR&hl=tr")
+
+    # Wait until at least one trend loads
     try:
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        driver.get("https://trends.google.com/trends/trendingsearches/daily?geo=TR&hl=tr")
-
-        # Wait until at least one trend loads
-        try:
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.mZ3RIc"))
-            )
-        except:
-            print("⚠️ Trends page didn't load properly")
-            return []
-
-        trends = []
-        seen = set()
-        scrolls = 0
-
-        while len(trends) < 50 and scrolls < 20:
-            # Scroll to load more
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(2)
-
-            # Collect all queries + volumes separately
-            queries = [el.text.strip() for el in driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc") if el.text.strip()]
-            volumes = [el.text.strip() for el in driver.find_elements(By.CSS_SELECTOR, "div.lqv0Cb") if el.text.strip()]
-
-            # Pair queries and volumes by index
-            for idx, query in enumerate(queries):
-                if query not in seen:
-                    seen.add(query)
-                    volume = volumes[idx] if idx < len(volumes) else ""
-                    trends.append({"query": query, "volume": volume})
-                    if len(trends) >= 50:
-                        break
-
-            scrolls += 1
-
-        print(f"Toplam {len(trends)} trend bulundu.")
-        # Debug preview
-        for t in trends[:10]:
-            print(f"{t['query']} | {t['volume']}")
-
-        return trends[:50]
-    
-    except Exception as e:
-        print(f"Error during scraping: {e}")
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "div.mZ3RIc"))
+        )
+    except:
+        print("⚠️ Trends page didn’t load properly")
+        driver.quit()
         return []
-    
-    finally:
-        if driver:
-            driver.quit()
+
+    trends = []
+    seen = set()
+    scrolls = 0
+
+    while len(trends) < 50 and scrolls < 20:
+        # Scroll to load more
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
+
+        # Collect all queries + volumes separately
+        queries = [el.text.strip() for el in driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc") if el.text.strip()]
+        volumes = [el.text.strip() for el in driver.find_elements(By.CSS_SELECTOR, "div.lqv0Cb") if el.text.strip()]
+
+        # Pair queries and volumes by index
+        for idx, query in enumerate(queries):
+            if query not in seen:
+                seen.add(query)
+                volume = volumes[idx] if idx < len(volumes) else ""
+                trends.append({"query": query, "volume": volume})
+                if len(trends) >= 50:
+                    break
+
+        scrolls += 1
+
+    driver.quit()
+
+    print(f"Toplam {len(trends)} trend bulundu.")
+    # Debug preview
+    for t in trends[:10]:
+        print(f"{t['query']} | {t['volume']}")
+
+    return trends[:50]
+
 
 def clean_trends_data(trends_list):
     """Clean and filter the scraped trends (keep query + volume)"""
@@ -137,6 +136,7 @@ def parse_volume(volume_text: str) -> int:
         return int(volume_text)
     except:
         return 0
+
 
 def generate_related_queries(trend, volume_text=""):
     """Generate related queries for a given trend, scaled by volume"""
@@ -195,8 +195,89 @@ def generate_related_queries(trend, volume_text=""):
 
     return related_data
 
+# Main execution
+print("=" * 60)
+print("GOOGLE TRENDS mZ3RIc CLASS SCRAPER")
+print("=" * 60)
+
+# Scrape trends from mZ3RIc class
+print("1. mZ3RIc classından trendler alınıyor...")
+raw_trends = scrape_trends_from_mz3ric()
+
+print(f"2. Ham trend verisi ({len(raw_trends)}):")
+for i, trend in enumerate(raw_trends[:10], 1):
+    print(f"   {i:2d}. {trend}")
+
+# Clean the trends
+print("\n3. Trendler temizleniyor...")
+cleaned_trends = clean_trends_data(raw_trends)
+
+print(f"4. Temizlenmiş trendler ({len(cleaned_trends)}):")
+for i, trend in enumerate(cleaned_trends, 1):
+    print(f"   {i:2d}. {trend}")
+
+# Generate related queries
+print("\n5. İlgili aramalar oluşturuluyor...")
+all_trends_data = []
+
+for i, trend in enumerate(cleaned_trends[:15], 1):  # Process first 15 trends
+    try:
+        print(f"   ({i:2d}/{min(15, len(cleaned_trends))}) '{trend}' işleniyor...")
+        
+        related_queries = generate_related_queries(trend["query"], trend["volume"])
+ 
+        all_trends_data.append({
+            "query": trend,
+            "related_queries": related_queries,
+            "timestamp": datetime.now().isoformat(),
+            "success": True
+        })
+        
+        # Small delay
+        time.sleep(0.5)
+        
+    except Exception as e:
+        print(f"   ✗ '{trend}' hatası: {e}")
+        all_trends_data.append({
+            "query": trend,
+            "error": str(e),
+            "timestamp": datetime.now().isoformat(),
+            "success": False
+        })
+
+# Save results
+filename = f"trends_data_mZ3RIc_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
+try:
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(all_trends_data, f, ensure_ascii=False, indent=2)
+    
+    print(f"\n6. SONUÇ:")
+    print(f"   ✓ Toplam {len(all_trends_data)} trend işlendi")
+    print(f"   ✓ Başarılı: {sum(1 for x in all_trends_data if x.get('success'))}")
+    print(f"   ✓ Veriler kaydedildi: {filename}")
+    
+except Exception as e:
+    print(f"   ✗ Dosya yazma hatası: {e}")
+
+# Show sample results
+successful_entries = [entry for entry in all_trends_data if entry.get('success')]
+if successful_entries:
+    print(f"\n7. ÖRNEK SONUÇLAR:")
+    for i, entry in enumerate(successful_entries[:3], 1):
+        print(f"\n   {i}. {entry['query']}:")
+        if entry['related_queries'].get('top'):
+            print(f"      Top: {[q['query'] for q in entry['related_queries']['top'][:3]]}")
+        if entry['related_queries'].get('rising'):
+            print(f"      Rising: {[q['query'] for q in entry['related_queries']['rising'][:3]]}")
+
+print("\n" + "=" * 60)
+print("mZ3RIc SCRAPING TAMAMLANDI")
+print("=" * 60)
+
+from datetime import datetime
+import csv, os
+
 def save_to_csv(all_trends_data, filename):
-    """Save trends data to CSV file"""
     file_exists = os.path.isfile(filename)
     with open(filename, "a", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
@@ -206,14 +287,20 @@ def save_to_csv(all_trends_data, filename):
             if entry.get("success"):
                 writer.writerow([
                     entry["timestamp"],
-                    entry["query"]["query"],
-                    entry["query"].get("volume", ""),
+                    entry["query"],
+                    entry.get("volume", ""),
                     ", ".join([q["query"] for q in entry["related_queries"]["top"]]),
                     ", ".join([q["query"] for q in entry["related_queries"]["rising"]])
                 ])
 
+# In your main code:
+today_file = f"trends_{datetime.now().strftime('%Y-%m-%d')}.csv"
+save_to_csv(all_trends_data, "trends.csv")      # master log (all runs)
+save_to_csv(all_trends_data, today_file)        # daily archive
+import sys
+import subprocess
+
 def push_to_github():
-    """Push data to GitHub repository"""
     try:
         subprocess.run(["git", "add", "trends.csv"], check=True)
 
@@ -227,105 +314,12 @@ def push_to_github():
 
     except Exception as e:
         print(f"✗ Git push failed: {e}")
+push_to_github()
 
-def main():
-    """Main execution function"""
-    print("=" * 60)
-    print("GOOGLE TRENDS mZ3RIc CLASS SCRAPER")
-    print("=" * 60)
-
-    # Scrape trends from mZ3RIc class
-    print("1. mZ3RIc classından trendler alınıyor...")
-    raw_trends = scrape_trends_from_mz3ric()
-
-    print(f"2. Ham trend verisi ({len(raw_trends)}):")
-    for i, trend in enumerate(raw_trends[:10], 1):
-        print(f"   {i:2d}. {trend}")
-
-    # Clean the trends
-    print("\n3. Trendler temizleniyor...")
-    cleaned_trends = clean_trends_data(raw_trends)
-
-    print(f"4. Temizlenmiş trendler ({len(cleaned_trends)}):")
-    for i, trend in enumerate(cleaned_trends, 1):
-        print(f"   {i:2d}. {trend}")
-
-    # Generate related queries
-    print("\n5. İlgili aramalar oluşturuluyor...")
-    all_trends_data = []
-
-    for i, trend in enumerate(cleaned_trends[:15], 1):  # Process first 15 trends
-        try:
-            print(f"   ({i:2d}/{min(15, len(cleaned_trends))}) '{trend['query']}' işleniyor...")
-            
-            related_queries = generate_related_queries(trend["query"], trend["volume"])
-    
-            all_trends_data.append({
-                "query": trend,
-                "related_queries": related_queries,
-                "timestamp": datetime.now().isoformat(),
-                "success": True
-            })
-            
-            # Small delay
-            time.sleep(0.5)
-            
-        except Exception as e:
-            print(f"   ✗ '{trend['query']}' hatası: {e}")
-            all_trends_data.append({
-                "query": trend,
-                "error": str(e),
-                "timestamp": datetime.now().isoformat(),
-                "success": False
-            })
-
-    # Save results to JSON
-    json_filename = f"trends_data_mZ3RIc_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
-    try:
-        with open(json_filename, 'w', encoding='utf-8') as f:
-            json.dump(all_trends_data, f, ensure_ascii=False, indent=2)
-        
-        print(f"\n6. SONUÇ:")
-        print(f"   ✓ Toplam {len(all_trends_data)} trend işlendi")
-        print(f"   ✓ Başarılı: {sum(1 for x in all_trends_data if x.get('success'))}")
-        print(f"   ✓ JSON veriler kaydedildi: {json_filename}")
-        
-    except Exception as e:
-        print(f"   ✗ JSON dosya yazma hatası: {e}")
-
-    # Save results to CSV
-    try:
-        today_file = f"trends_{datetime.now().strftime('%Y-%m-%d')}.csv"
-        save_to_csv(all_trends_data, "trends.csv")      # master log (all runs)
-        save_to_csv(all_trends_data, today_file)        # daily archive
-        print(f"   ✓ CSV veriler kaydedildi: trends.csv ve {today_file}")
-    except Exception as e:
-        print(f"   ✗ CSV dosya yazma hatası: {e}")
-
-    # Push to GitHub
-    try:
-        push_to_github()
-    except Exception as e:
-        print(f"   ✗ GitHub push hatası: {e}")
-
-    # Show sample results
-    successful_entries = [entry for entry in all_trends_data if entry.get('success')]
-    if successful_entries:
-        print(f"\n7. ÖRNEK SONUÇLAR:")
-        for i, entry in enumerate(successful_entries[:3], 1):
-            print(f"\n   {i}. {entry['query']['query']}:")
-            if entry['related_queries'].get('top'):
-                print(f"      Top: {[q['query'] for q in entry['related_queries']['top'][:3]]}")
-            if entry['related_queries'].get('rising'):
-                print(f"      Rising: {[q['query'] for q in entry['related_queries']['rising'][:3]]}")
-
-    print("\n" + "=" * 60)
-    print("mZ3RIc SCRAPING TAMAMLANDI")
-    print("=" * 60)
-
+# Add at the end of your script:
 if __name__ == "__main__":
     try:
-        main()
+        # ... your existing main code ...
         sys.exit(0)  # Success
     except Exception as e:
         print(f"Critical error: {e}")
