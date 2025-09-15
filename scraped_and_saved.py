@@ -291,6 +291,7 @@ def save_to_csv(all_trends_data, filename):
 today_file = f"trends_{datetime.now().strftime('%Y-%m-%d')}.csv"
 save_to_csv(all_trends_data, "trends.csv")      # master log (all runs)
 save_to_csv(all_trends_data, today_file)        # daily archive
+import sys
 import subprocess
 
 def push_to_github():
