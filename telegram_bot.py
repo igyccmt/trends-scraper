@@ -23,8 +23,6 @@ if not BOT_TOKEN:
     print("Error: BOT_TOKEN not found in environment variables")
     exit(1)
 
-# Replace with your actual token
-
 # List of authorized user IDs (optional but recommended for security)
 AUTHORIZED_USERS = [7811776774]  # Replace with your Telegram user ID
 
@@ -101,13 +99,19 @@ async def scrape_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             lines = output.split('\n')
             
             # Extract key information
-            success_count = 0
             total_count = 0
+            success_count = 0
             for line in lines:
                 if "Toplam" in line and "trend işlendi" in line:
-                    total_count = int(line.split()[1])
-                if "Başarılı" in line:
-                    success_count = int(line.split()[1])
+                    try:
+                        total_count = int(line.split()[1])
+                    except (IndexError, ValueError):
+                        pass
+                if "Başarılı" in line and ":" in line:
+                    try:
+                        success_count = int(line.split(":")[1].strip().split()[0])
+                    except (IndexError, ValueError):
+                        pass
             
             result_text = f"""
 ✅ *Scraping Completed Successfully!*
@@ -126,15 +130,15 @@ Data has been pushed to GitHub.
                 sample = output[-500:]  # Last 500 characters
                 await update.message.reply_text(f"📋 Last output:\n```\n{sample}\n```", parse_mode='MarkdownV2')
             
-            else:
+        else:
             # Error
-                error_output = stderr.decode().strip()
-                await message.edit_text(
-                    f"❌ <b>Scraping Failed!</b>\n<pre>{error_output[-1000:]}</pre>",
-                    parse_mode="HTML"
+            error_output = stderr.decode().strip()
+            error_message = error_output[-1000:] if error_output else "Unknown error occurred"
+            await message.edit_text(
+                f"❌ <b>Scraping Failed!</b>\n<pre>{error_message}</pre>",
+                parse_mode="HTML"
             )
         
- 
     except asyncio.TimeoutError:
         await message.edit_text("⏰ *Scraping timed out!* The process took too long to complete.", parse_mode='Markdown')
     except Exception as e:
@@ -142,12 +146,31 @@ Data has been pushed to GitHub.
 
 async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Check the status of the scraper."""
-    status_text = """
+    # Check if the CSV file exists and get its stats
+    csv_exists = os.path.exists("trends.csv")
+    status_info = ""
+    
+    if csv_exists:
+        try:
+            # Get file modification time
+            mod_time = os.path.getmtime("trends.csv")
+            mod_date = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
+            status_info = f"• Last update: {mod_date}\n"
+            
+            # Count lines in the CSV file
+            with open("trends.csv", "r", encoding="utf-8") as f:
+                line_count = sum(1 for line in f) - 1  # Subtract header row
+            
+            status_info += f"• Total records: {line_count}\n"
+        except Exception as e:
+            status_info = f"• Error reading file: {str(e)}\n"
+    
+    status_text = f"""
 📊 *Scraper Status*
 
-• Last run: Check your trends.csv file
+{status_info}
 • GitHub: https://github.com/igyccmt/trends-scraper
-• Next scheduled run: Based on your cron job
+• CSV file: {"✅ Found" if csv_exists else "❌ Not found"}
 
 Use /scrape to run the scraper manually.
     """
