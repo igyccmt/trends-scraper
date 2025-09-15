@@ -54,23 +54,28 @@ def scrape_trends_from_mz3ric():
     driver.get("https://trends.google.com/trends/trendingsearches/daily?geo=TR&hl=tr")
 
     trends = []
-    scroll_attempts = 0
+    seen = set()
+    scrolls = 0
 
-    while len(trends) < 50 and scroll_attempts < 5:
+    while len(trends) < 50 and scrolls < 20:
+        # Scroll down
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
 
-        mz3ric_elements = driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc")
-        for el in mz3ric_elements:
+        # Grab items
+        elements = driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc")
+        for el in elements:
             text = el.text.strip()
-            if text and text not in trends:
+            if text and text not in seen:
+                seen.add(text)
                 trends.append(text)
                 if len(trends) >= 50:
                     break
 
-        scroll_attempts += 1
+        scrolls += 1
 
     driver.quit()
+    print(f"Toplam {len(trends)} trend bulundu.")
     return trends[:50]
 
 def clean_trends_data(trends_list):
