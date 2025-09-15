@@ -1,0 +1,305 @@
+[
+  {
+    "query": "türkiye basketbol maçı",
+    "related_queries": {
+      "top": [
+        {
+          "query": "türkiye basketbol maçı güncel",
+          "value": 75
+        },
+        {
+          "query": "türkiye basketbol maçı son dakika",
+          "value": 88
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:23.415916",
+    "success": true
+  },
+  {
+    "query": "fenerbahçe - trabzonspor maç kadrosu",
+    "related_queries": {
+      "top": [
+        {
+          "query": "gol fenerbahçe - trabzonspor maç kadrosu",
+          "value": 51
+        },
+        {
+          "query": "özet fenerbahçe - trabzonspor maç kadrosu",
+          "value": 73
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu gol",
+          "value": 54
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu güncel",
+          "value": 83
+        },
+        {
+          "query": "iddaa fenerbahçe - trabzonspor maç kadrosu",
+          "value": 89
+        }
+      ],
+      "rising": [
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu izle son dakika",
+          "value": 143
+        },
+        {
+          "query": "sonuç fenerbahçe - trabzonspor maç kadrosu haberleri",
+          "value": 113
+        },
+        {
+          "query": "canlı fenerbahçe - trabzonspor maç kadrosu haberleri",
+          "value": 200
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu canlı son dakika",
+          "value": 128
+        },
+        {
+          "query": "izle fenerbahçe - trabzonspor maç kadrosu haberleri",
+          "value": 102
+        }
+      ]
+    },
+    "timestamp": "2025-09-14T22:09:23.916650",
+    "success": true
+  },
+  {
+    "query": "manchester city - manchester united",
+    "related_queries": {
+      "top": [
+        {
+          "query": "manchester city - manchester united son dakika",
+          "value": 86
+        },
+        {
+          "query": "manchester city - manchester united güncel",
+          "value": 67
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:24.417682",
+    "success": true
+  },
+  {
+    "query": "amed - pendikspor",
+    "related_queries": {
+      "top": [
+        {
+          "query": "amed - pendikspor son dakika",
+          "value": 86
+        },
+        {
+          "query": "amed - pendikspor güncel",
+          "value": 73
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:24.918611",
+    "success": true
+  },
+  {
+    "query": "alperen şengün",
+    "related_queries": {
+      "top": [
+        {
+          "query": "alperen şengün son dakika",
+          "value": 50
+        },
+        {
+          "query": "alperen şengün güncel",
+          "value": 50
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:25.419617",
+    "success": true
+  },
+  {
+    "query": "adem bona",
+    "related_queries": {
+      "top": [
+        {
+          "query": "adem bona güncel",
+          "value": 93
+        },
+        {
+          "query": "adem bona son dakika",
+          "value": 60
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:25.920576",
+    "success": true
+  },
+  {
+    "query": "barcelona - valencia",
+    "related_queries": {
+      "top": [
+        {
+          "query": "barcelona - valencia son dakika",
+          "value": 65
+        },
+        {
+          "query": "barcelona - valencia güncel",
+          "value": 87
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:26.421570",
+    "success": true
+  },
+  {
+    "query": "gaziantep fk - kocaelispor",
+    "related_queries": {
+      "top": [
+        {
+          "query": "gaziantep fk - kocaelispor güncel",
+          "value": 73
+        },
+        {
+          "query": "gaziantep fk - kocaelispor son dakika",
+          "value": 66
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:26.922558",
+    "success": true
+  },
+  {
+    "query": "kayserispor - göztepe",
+    "related_queries": {
+      "top": [
+        {
+          "query": "kayserispor - göztepe güncel",
+          "value": 95
+        },
+        {
+          "query": "kayserispor - göztepe son dakika",
+          "value": 69
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:27.423841",
+    "success": true
+  },
+  {
+    "query": "larkin",
+    "related_queries": {
+      "top": [
+        {
+          "query": "larkin son dakika",
+          "value": 71
+        },
+        {
+          "query": "larkin güncel",
+          "value": 70
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:27.924708",
+    "success": true
+  },
+  {
+    "query": "franz wagner",
+    "related_queries": {
+      "top": [
+        {
+          "query": "franz wagner son dakika",
+          "value": 55
+        },
+        {
+          "query": "franz wagner güncel",
+          "value": 78
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:28.425952",
+    "success": true
+  },
+  {
+    "query": "burnley - liverpool",
+    "related_queries": {
+      "top": [
+        {
+          "query": "burnley - liverpool güncel",
+          "value": 64
+        },
+        {
+          "query": "burnley - liverpool son dakika",
+          "value": 51
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:28.927257",
+    "success": true
+  },
+  {
+    "query": "psg - lens",
+    "related_queries": {
+      "top": [
+        {
+          "query": "psg - lens güncel",
+          "value": 58
+        },
+        {
+          "query": "psg - lens son dakika",
+          "value": 82
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:29.428481",
+    "success": true
+  },
+  {
+    "query": "al nassr - al kholood",
+    "related_queries": {
+      "top": [
+        {
+          "query": "al nassr - al kholood güncel",
+          "value": 82
+        },
+        {
+          "query": "al nassr - al kholood son dakika",
+          "value": 68
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:29.929590",
+    "success": true
+  },
+  {
+    "query": "cedi osman nereli",
+    "related_queries": {
+      "top": [
+        {
+          "query": "cedi osman nereli son dakika",
+          "value": 51
+        },
+        {
+          "query": "cedi osman nereli güncel",
+          "value": 88
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-14T22:09:30.430634",
+    "success": true
+  }
+]

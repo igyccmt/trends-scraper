@@ -1,0 +1,305 @@
+[
+  {
+    "query": "fenerbahçe - trabzonspor maç kadrosu",
+    "related_queries": {
+      "top": [
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu özet",
+          "value": 84
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu son dakika",
+          "value": 67
+        },
+        {
+          "query": "özet fenerbahçe - trabzonspor maç kadrosu",
+          "value": 76
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu gol",
+          "value": 74
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu güncel",
+          "value": 58
+        }
+      ],
+      "rising": [
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu sonuç son dakika",
+          "value": 164
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu izle son dakika",
+          "value": 134
+        },
+        {
+          "query": "izle fenerbahçe - trabzonspor maç kadrosu haberleri",
+          "value": 118
+        },
+        {
+          "query": "fenerbahçe - trabzonspor maç kadrosu canlı son dakika",
+          "value": 140
+        },
+        {
+          "query": "canlı fenerbahçe - trabzonspor maç kadrosu haberleri",
+          "value": 192
+        }
+      ]
+    },
+    "timestamp": "2025-09-15T11:00:10.491195",
+    "success": true
+  },
+  {
+    "query": "barcelona - valencia",
+    "related_queries": {
+      "top": [
+        {
+          "query": "barcelona - valencia güncel",
+          "value": 61
+        },
+        {
+          "query": "barcelona - valencia son dakika",
+          "value": 77
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:10.992267",
+    "success": true
+  },
+  {
+    "query": "manchester city - manchester united",
+    "related_queries": {
+      "top": [
+        {
+          "query": "manchester city - manchester united son dakika",
+          "value": 57
+        },
+        {
+          "query": "manchester city - manchester united güncel",
+          "value": 79
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:11.493479",
+    "success": true
+  },
+  {
+    "query": "togg",
+    "related_queries": {
+      "top": [
+        {
+          "query": "togg son dakika",
+          "value": 90
+        },
+        {
+          "query": "togg güncel",
+          "value": 64
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:11.994592",
+    "success": true
+  },
+  {
+    "query": "türkiye - almanya",
+    "related_queries": {
+      "top": [
+        {
+          "query": "türkiye - almanya güncel",
+          "value": 55
+        },
+        {
+          "query": "türkiye - almanya son dakika",
+          "value": 98
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:12.495713",
+    "success": true
+  },
+  {
+    "query": "kayserispor - göztepe",
+    "related_queries": {
+      "top": [
+        {
+          "query": "kayserispor - göztepe son dakika",
+          "value": 64
+        },
+        {
+          "query": "kayserispor - göztepe güncel",
+          "value": 89
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:12.996809",
+    "success": true
+  },
+  {
+    "query": "trabzon belediye başkanı",
+    "related_queries": {
+      "top": [
+        {
+          "query": "trabzon belediye başkanı son dakika",
+          "value": 62
+        },
+        {
+          "query": "trabzon belediye başkanı güncel",
+          "value": 87
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:13.497815",
+    "success": true
+  },
+  {
+    "query": "gaziantep fk - kocaelispor",
+    "related_queries": {
+      "top": [
+        {
+          "query": "gaziantep fk - kocaelispor son dakika",
+          "value": 56
+        },
+        {
+          "query": "gaziantep fk - kocaelispor güncel",
+          "value": 56
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:13.998934",
+    "success": true
+  },
+  {
+    "query": "mutlak butlan",
+    "related_queries": {
+      "top": [
+        {
+          "query": "mutlak butlan son dakika",
+          "value": 80
+        },
+        {
+          "query": "mutlak butlan güncel",
+          "value": 89
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:14.500039",
+    "success": true
+  },
+  {
+    "query": "al nassr - al kholood",
+    "related_queries": {
+      "top": [
+        {
+          "query": "al nassr - al kholood son dakika",
+          "value": 72
+        },
+        {
+          "query": "al nassr - al kholood güncel",
+          "value": 79
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:15.001162",
+    "success": true
+  },
+  {
+    "query": "psg - lens",
+    "related_queries": {
+      "top": [
+        {
+          "query": "psg - lens son dakika",
+          "value": 51
+        },
+        {
+          "query": "psg - lens güncel",
+          "value": 99
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:15.502269",
+    "success": true
+  },
+  {
+    "query": "the pitt",
+    "related_queries": {
+      "top": [
+        {
+          "query": "the pitt son dakika",
+          "value": 90
+        },
+        {
+          "query": "the pitt güncel",
+          "value": 84
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:16.003516",
+    "success": true
+  },
+  {
+    "query": "milan - bologna",
+    "related_queries": {
+      "top": [
+        {
+          "query": "milan - bologna son dakika",
+          "value": 71
+        },
+        {
+          "query": "milan - bologna güncel",
+          "value": 61
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:16.504641",
+    "success": true
+  },
+  {
+    "query": "ios 26 saat kaçta",
+    "related_queries": {
+      "top": [
+        {
+          "query": "ios 26 saat kaçta son dakika",
+          "value": 88
+        },
+        {
+          "query": "ios 26 saat kaçta güncel",
+          "value": 56
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:17.005774",
+    "success": true
+  },
+  {
+    "query": "hannah einbinder",
+    "related_queries": {
+      "top": [
+        {
+          "query": "hannah einbinder son dakika",
+          "value": 84
+        },
+        {
+          "query": "hannah einbinder güncel",
+          "value": 78
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T11:00:17.506915",
+    "success": true
+  }
+]

@@ -30,116 +30,48 @@ def scrape_trends_from_mz3ric():
     options.add_argument(f'--user-agent={random.choice(user_agents)}')
     options.add_argument('--window-size=1920,1080')
     
+def scrape_trends_from_mz3ric():
+    """Scrape first 50 trends from Google Trends daily search page"""
+    print("mZ3RIc classından trendler alınıyor...")
+
+    user_agents = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0'
+    ]
+
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    options.add_argument(f'--user-agent={random.choice(user_agents)}')
+    options.add_argument('--window-size=1920,1080')
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get("https://trends.google.com/trends/trendingsearches/daily?geo=TR&hl=tr")
+
     trends = []
-    
-    try:
-        driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=options
-        )
-        
-        driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-        
-        print("Google Trends sayfası yükleniyor...")
-        driver.get('https://trends.google.com/trends/trendingsearches/daily?geo=TR&hl=tr')
-        
-        # Wait specifically for mZ3RIc elements to load
-        print("mZ3RIc elementleri bekleniyor...")
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "div.mZ3RIc"))
-        )
-        
-        # Additional wait for content to fully render
-        time.sleep(3)
-        
-        # Take screenshot for debugging
-        driver.save_screenshot('trends_page_debug.png')
-        print("Sayfa ekran görüntüsü alındı: trends_page_debug.png")
-        
-        # STRATEGY 1: Direct mZ3RIc class scraping
-        print("mZ3RIc elementleri aranıyor...")
+    scroll_attempts = 0
+
+    while len(trends) < 50 and scroll_attempts < 5:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
+
         mz3ric_elements = driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc")
-        print(f"Bulunan mZ3RIc element sayısı: {len(mz3ric_elements)}")
-        
-        for i, element in enumerate(mz3ric_elements):
-            try:
-                text = element.text.strip()
-                if text and len(text) > 3:
-                    print(f"  mZ3RIc [{i}]: {text}")
-                    trends.append(text)
-            except Exception as e:
-                print(f"  mZ3RIc [{i}] okuma hatası: {e}")
-                continue
-        
-        # STRATEGY 2: Look for child elements within mZ3RIc
-        if not trends:
-            print("mZ3RIc içindeki alt elementler aranıyor...")
-            try:
-                # Look for specific child elements that might contain trend text
-                child_selectors = [
-                    "div.mZ3RIc > div",
-                    "div.mZ3RIc > a",
-                    "div.mZ3RIc > span",
-                    "div.mZ3RIc div[class*='title']",
-                    "div.mZ3RIc div[class*='text']",
-                    "div.mZ3RIc div[class*='content']"
-                ]
-                
-                for selector in child_selectors:
-                    try:
-                        elements = driver.find_elements(By.CSS_SELECTOR, selector)
-                        for element in elements:
-                            text = element.text.strip()
-                            if text and len(text) > 3:
-                                trends.append(text)
-                    except:
-                        continue
-            except Exception as e:
-                print(f"Alt element arama hatası: {e}")
-        
-        # STRATEGY 3: JavaScript extraction from mZ3RIc elements
-        if not trends:
-            print("JavaScript ile mZ3RIc içeriği çıkarılıyor...")
-            try:
-                js_script = """
-                var trends = [];
-                var elements = document.querySelectorAll('div.mZ3RIc');
-                for (var i = 0; i < elements.length; i++) {
-                    var element = elements[i];
-                    // Try different text extraction methods
-                    var text = element.textContent || element.innerText;
-                    if (text && text.trim().length > 3) {
-                        trends.push(text.trim());
-                    }
-                    
-                    // Also try child elements
-                    var children = element.querySelectorAll('div, span, a, p');
-                    for (var j = 0; j < children.length; j++) {
-                        var childText = children[j].textContent || children[j].innerText;
-                        if (childText && childText.trim().length > 3) {
-                            trends.push(childText.trim());
-                        }
-                    }
-                }
-                return Array.from(new Set(trends)); // Remove duplicates
-                """
-                
-                js_trends = driver.execute_script(js_script)
-                if js_trends:
-                    trends.extend(js_trends)
-                    print(f"JavaScript ile {len(js_trends)} trend bulundu")
-                
-            except Exception as js_error:
-                print(f"JavaScript extraction hatası: {js_error}")
-        
-        driver.quit()
-        
-    except Exception as e:
-        print(f"Selenium hatası: {e}")
-        if 'driver' in locals():
-            driver.quit()
-    
-    return trends
+        for el in mz3ric_elements:
+            text = el.text.strip()
+            if text and text not in trends:
+                trends.append(text)
+                if len(trends) >= 50:
+                    break
+
+        scroll_attempts += 1
+
+    driver.quit()
+    return trends[:50]
 
 def clean_trends_data(trends_list):
     """Clean and filter the scraped trends"""
@@ -296,22 +228,51 @@ print("\n" + "=" * 60)
 print("mZ3RIc SCRAPING TAMAMLANDI")
 print("=" * 60)
 
-import csv
+from datetime import datetime
+import csv, os
 
-def save_to_csv(data, filename="trends.csv"):
-    with open(filename, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Timestamp", "Query", "Top", "Rising", "Success", "Error"])
-        for entry in data:
-            writer.writerow([
-                entry.get("timestamp"),
-                entry.get("query"),
-                "; ".join(q["query"] for q in entry["related_queries"].get("top", [])),
-                "; ".join(q["query"] for q in entry["related_queries"].get("rising", [])),
-                entry.get("success"),
-                entry.get("error", "")
-            ])
+def save_to_csv(all_trends_data, filename):
+    file_exists = os.path.isfile(filename)
+    with open(filename, "a", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        if not file_exists:
+            writer.writerow(["timestamp", "query", "related_top", "related_rising"])
+        for entry in all_trends_data:
+            if entry.get("success"):
+                writer.writerow([
+                    entry["timestamp"],
+                    entry["query"],
+                    ", ".join([q["query"] for q in entry["related_queries"]["top"]]),
+                    ", ".join([q["query"] for q in entry["related_queries"]["rising"]])
+                ])
 
-# After saving JSON:
-save_to_csv(all_trends_data, "trends.csv")
-print("✓ CSV kaydedildi: trends.csv")
+# In your main code:
+today_file = f"trends_{datetime.now().strftime('%Y-%m-%d')}.csv"
+save_to_csv(all_trends_data, "trends.csv")      # master log (all runs)
+save_to_csv(all_trends_data, today_file)        # daily archive
+import subprocess
+
+def push_to_github():
+    try:
+        subprocess.run(["git", "add", "trends.csv"], check=True)
+
+        today_file = f"trends_{datetime.now().strftime('%Y-%m-%d')}.csv"
+        if os.path.exists(today_file):
+            subprocess.run(["git", "add", today_file], check=True)
+
+        subprocess.run(["git", "commit", "-m", f"Auto update {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"], check=False)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        print("✓ Data pushed to GitHub")
+
+    except Exception as e:
+        print(f"✗ Git push failed: {e}")
+push_to_github()
+
+# Add at the end of your script:
+if __name__ == "__main__":
+    try:
+        # ... your existing main code ...
+        sys.exit(0)  # Success
+    except Exception as e:
+        print(f"Critical error: {e}")
+        sys.exit(1)  # Failure
