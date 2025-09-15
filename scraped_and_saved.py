@@ -31,7 +31,7 @@ def scrape_trends_from_mz3ric():
     options.add_argument('--window-size=1920,1080')
     
 def scrape_trends_from_mz3ric():
-    """Scrape first 50 trends from Google Trends daily search page"""
+    """Scrape first 50 trends and their search volumes"""
     print("mZ3RIc classından trendler alınıyor...")
 
     user_agents = [
@@ -58,19 +58,23 @@ def scrape_trends_from_mz3ric():
     scrolls = 0
 
     while len(trends) < 50 and scrolls < 20:
-        # Scroll down
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
 
-        # Grab items
-        elements = driver.find_elements(By.CSS_SELECTOR, "div.mZ3RIc")
-        for el in elements:
-            text = el.text.strip()
-            if text and text not in seen:
-                seen.add(text)
-                trends.append(text)
-                if len(trends) >= 50:
-                    break
+        items = driver.find_elements(By.CSS_SELECTOR, "div.feed-item")
+        for item in items:
+            try:
+                title_el = item.find_element(By.CSS_SELECTOR, "div.mZ3RIc")
+                volume_el = item.find_element(By.CSS_SELECTOR, "div.lqv0Cb")  # ✅ fixed
+                title = title_el.text.strip()
+                volume = volume_el.text.strip()
+                if title and title not in seen:
+                    seen.add(title)
+                    trends.append({"query": title, "volume": volume})
+                    if len(trends) >= 50:
+                        break
+            except:
+                continue
 
         scrolls += 1
 
@@ -79,36 +83,57 @@ def scrape_trends_from_mz3ric():
     return trends[:50]
 
 def clean_trends_data(trends_list):
-    """Clean and filter the scraped trends"""
+    """Clean and filter the scraped trends (keep query + volume)"""
     cleaned = []
     seen = set()
     
     for trend in trends_list:
-        if not trend:
+        query = trend["query"]
+        volume = trend.get("volume", "")
+        if not query:
             continue
-            
-        # Clean the text
-        clean_trend = trend.strip()
-        clean_trend = re.sub(r'\s+', ' ', clean_trend)  # Remove extra spaces
-        clean_trend = re.sub(r'^\d+\.\s*', '', clean_trend)  # Remove numbering
-        
-        # Filter criteria
-        if (len(clean_trend) > 3 and 
-            len(clean_trend) < 100 and
-            not any(word in clean_trend.lower() for word in [
+
+        clean_query = query.strip()
+        clean_query = re.sub(r'\s+', ' ', clean_query)
+        clean_query = re.sub(r'^\d+\.\s*', '', clean_query)
+
+        if (len(clean_query) > 3 and 
+            len(clean_query) < 100 and
+            not any(word in clean_query.lower() for word in [
                 'google', 'trends', 'keşfet', 'oturum', 'ara', 'search', 
                 'maps', '●', 'saat önce', 'dakika önce'
             ]) and
-            clean_trend not in seen):
-            
-            cleaned.append(clean_trend)
-            seen.add(clean_trend)
-    
+            clean_query not in seen):
+
+            cleaned.append({"query": clean_query, "volume": volume})
+            seen.add(clean_query)
+
     return cleaned
 
-def generate_related_queries(trend):
-    """Generate related queries for a given trend"""
-    # Turkish keyword expansions
+def parse_volume(volume_text: str) -> int:
+    """Convert Google Trends volume string into an integer"""
+    if not volume_text:
+        return 0
+
+    volume_text = volume_text.lower().replace("arama", "").replace("+", "").strip()
+
+    multipliers = {
+        "k": 1_000,
+        "m": 1_000_000,
+        "b": 1_000_000_000
+    }
+
+    try:
+        if volume_text[-1] in multipliers:
+            num = float(volume_text[:-1])
+            return int(num * multipliers[volume_text[-1]])
+        return int(volume_text)
+    except:
+        return 0
+
+
+def generate_related_queries(trend, volume_text=""):
+    """Generate related queries for a given trend, scaled by volume"""
     expansions = {
         'spor': ['maç', 'skor', 'sonuç', 'haber', 'lig', 'takım'],
         'maç': ['özet', 'gol', 'iddaa', 'canlı', 'izle', 'sonuç'],
@@ -121,37 +146,47 @@ def generate_related_queries(trend):
         'cuma': ['mesaj', 'kutlama', 'resimli', 'dua', 'hutbe'],
         'oyuncu': ['film', 'dizi', 'rol', 'set', 'fragman']
     }
-    
+
+    # Parse volume
+    base_volume = parse_volume(volume_text)
+    if base_volume == 0:
+        base_volume = 1000  # fallback
+
     related_data = {'top': [], 'rising': []}
-    
-    # Generate top queries
     top_queries = set()
     words = trend.lower().split()
-    
+
+    # Generate top queries
     for word in words:
         if word in expansions:
             for expansion in expansions[word][:3]:
                 top_queries.add(f"{trend} {expansion}")
                 top_queries.add(f"{expansion} {trend}")
-    
+
     # Add time-based variations
-    time_vars = ['son dakika', 'güncel', 'canlı', 'bugün', '2024']
+    time_vars = ['son dakika', 'güncel', 'canlı', 'bugün', '2025']
     for time_var in time_vars[:2]:
         top_queries.add(f"{trend} {time_var}")
-    
-    # Convert to required format
-    related_data['top'] = [{'query': q, 'value': random.randint(50, 100)} for q in list(top_queries)[:5]]
-    
-    # Generate rising queries (more specific)
+
+    # Scale values based on base volume
+    related_data['top'] = [
+        {"query": q, "value": int(base_volume * random.uniform(0.4, 0.8))}
+        for q in list(top_queries)[:5]
+    ]
+
+    # Rising queries (more specific variations)
     rising_queries = set()
     for word in words:
         if word in expansions:
             for expansion in expansions[word][3:6]:
                 rising_queries.add(f"{trend} {expansion} son dakika")
                 rising_queries.add(f"{expansion} {trend} haberleri")
-    
-    related_data['rising'] = [{'query': q, 'value': random.randint(100, 200)} for q in list(rising_queries)[:5]]
-    
+
+    related_data['rising'] = [
+        {"query": q, "value": int(base_volume * random.uniform(0.8, 1.2))}
+        for q in list(rising_queries)[:5]
+    ]
+
     return related_data
 
 # Main execution
@@ -183,8 +218,8 @@ for i, trend in enumerate(cleaned_trends[:15], 1):  # Process first 15 trends
     try:
         print(f"   ({i:2d}/{min(15, len(cleaned_trends))}) '{trend}' işleniyor...")
         
-        related_queries = generate_related_queries(trend)
-        
+        related_queries = generate_related_queries(trend["query"], trend["volume"])
+ 
         all_trends_data.append({
             "query": trend,
             "related_queries": related_queries,
@@ -241,12 +276,13 @@ def save_to_csv(all_trends_data, filename):
     with open(filename, "a", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
         if not file_exists:
-            writer.writerow(["timestamp", "query", "related_top", "related_rising"])
+            writer.writerow(["timestamp", "query", "volume", "related_top", "related_rising"])
         for entry in all_trends_data:
             if entry.get("success"):
                 writer.writerow([
                     entry["timestamp"],
                     entry["query"],
+                    entry.get("volume", ""),
                     ", ".join([q["query"] for q in entry["related_queries"]["top"]]),
                     ", ".join([q["query"] for q in entry["related_queries"]["rising"]])
                 ])
