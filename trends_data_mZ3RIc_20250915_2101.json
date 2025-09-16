@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "kanal d canlı",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d canlı güncel",
+          "value": 28232199163
+        },
+        {
+          "query": "kanal d canlı son dakika",
+          "value": 25437362307
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:05.673411",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ufuk özkan",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ufuk özkan son dakika",
+          "value": 35853013498
+        },
+        {
+          "query": "ufuk özkan güncel",
+          "value": 34415393853
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:06.174574",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "rizespor - gençlerbirliği",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "rizespor - gençlerbirliği güncel",
+          "value": 13407055731
+        },
+        {
+          "query": "rizespor - gençlerbirliği son dakika",
+          "value": 8101415902
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:06.675639",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "uzak şehir",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "uzak şehir güncel",
+          "value": 9300028255
+        },
+        {
+          "query": "uzak şehir son dakika",
+          "value": 8240836920
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:07.176695",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "barcelona - valencia",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "barcelona - valencia son dakika",
+          "value": 28874729377
+        },
+        {
+          "query": "barcelona - valencia güncel",
+          "value": 26903849804
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:07.677817",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kanal d canlı izle",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d canlı izle güncel",
+          "value": 12970876835
+        },
+        {
+          "query": "kanal d canlı izle son dakika",
+          "value": 9996912098
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:08.178988",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "erzurumspor - sakaryaspor",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "erzurumspor - sakaryaspor güncel",
+          "value": 7025550604
+        },
+        {
+          "query": "erzurumspor - sakaryaspor son dakika",
+          "value": 5239733297
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:08.680056",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "togg",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "togg son dakika",
+          "value": 35845586020
+        },
+        {
+          "query": "togg güncel",
+          "value": 33998732245
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:09.181195",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ios 26 saat kaçta",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ios 26 saat kaçta güncel",
+          "value": 5758645273
+        },
+        {
+          "query": "ios 26 saat kaçta son dakika",
+          "value": 4454999291
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:09.682430",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kanal d yayın akışı",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d yayın akışı son dakika",
+          "value": 61735705072
+        },
+        {
+          "query": "kanal d yayın akışı güncel",
+          "value": 50551440366
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:10.183589",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "cennetin çocukları oyuncuları",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "cennetin çocukları oyuncuları son dakika",
+          "value": 2710742140
+        },
+        {
+          "query": "cennetin çocukları oyuncuları güncel",
+          "value": 3054360380
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:10.684651",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "trabzon belediye başkanı",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "trabzon belediye başkanı güncel",
+          "value": 14137266809
+        },
+        {
+          "query": "trabzon belediye başkanı son dakika",
+          "value": 15432046476
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:11.185698",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "hannah einbinder",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "hannah einbinder son dakika",
+          "value": 2410634362
+        },
+        {
+          "query": "hannah einbinder güncel",
+          "value": 3585970285
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:11.686848",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ismail hacıoğlu",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ismail hacıoğlu güncel",
+          "value": 2643165174
+        },
+        {
+          "query": "ismail hacıoğlu son dakika",
+          "value": 3951540154
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:12.188009",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "adolescence",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "adolescence son dakika",
+          "value": 899923711
+        },
+        {
+          "query": "adolescence güncel",
+          "value": 1598556848
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T21:01:12.689165",
+    "success": true
+  }
+]

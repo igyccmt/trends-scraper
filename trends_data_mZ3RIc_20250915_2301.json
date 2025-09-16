@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "kanal d canlı",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d canlı güncel",
+          "value": 60073637161
+        },
+        {
+          "query": "kanal d canlı son dakika",
+          "value": 46392732884
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:05.160418",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "rizespor - gençlerbirliği",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "rizespor - gençlerbirliği son dakika",
+          "value": 34392158860
+        },
+        {
+          "query": "rizespor - gençlerbirliği güncel",
+          "value": 28750254711
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:05.661547",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ufuk özkan",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ufuk özkan son dakika",
+          "value": 25540506220
+        },
+        {
+          "query": "ufuk özkan güncel",
+          "value": 31432950224
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:06.162668",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "uzak şehir",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "uzak şehir son dakika",
+          "value": 52924689675
+        },
+        {
+          "query": "uzak şehir güncel",
+          "value": 44738485309
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:06.663750",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kanal d canlı yayın",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d canlı yayın son dakika",
+          "value": 15079348184
+        },
+        {
+          "query": "kanal d canlı yayın güncel",
+          "value": 13687891022
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:07.164872",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "erzurumspor - sakaryaspor",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "erzurumspor - sakaryaspor güncel",
+          "value": 11763744613
+        },
+        {
+          "query": "erzurumspor - sakaryaspor son dakika",
+          "value": 14984577815
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:07.665693",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kanal d canlı izle",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kanal d canlı izle güncel",
+          "value": 15376271413
+        },
+        {
+          "query": "kanal d canlı izle son dakika",
+          "value": 15487137847
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:08.166868",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "cennetin çocukları oyuncuları",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "cennetin çocukları oyuncuları güncel",
+          "value": 5247717144
+        },
+        {
+          "query": "cennetin çocukları oyuncuları son dakika",
+          "value": 5600560415
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:08.668044",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "togg",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "togg güncel",
+          "value": 23768168889
+        },
+        {
+          "query": "togg son dakika",
+          "value": 32498619059
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:09.169161",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "cennetin çocukları",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "cennetin çocukları güncel",
+          "value": 6633805204
+        },
+        {
+          "query": "cennetin çocukları son dakika",
+          "value": 5727099757
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:09.670467",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "espanyol - mallorca",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "espanyol - mallorca güncel",
+          "value": 1162926290
+        },
+        {
+          "query": "espanyol - mallorca son dakika",
+          "value": 1201921270
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:10.171645",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "javier bardem",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "javier bardem son dakika",
+          "value": 4029094059
+        },
+        {
+          "query": "javier bardem güncel",
+          "value": 4564492648
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:10.672812",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ios 26",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ios 26 son dakika",
+          "value": 7689549357
+        },
+        {
+          "query": "ios 26 güncel",
+          "value": 4477319057
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:11.173921",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "como - genoa",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "como - genoa güncel",
+          "value": 828648940
+        },
+        {
+          "query": "como - genoa son dakika",
+          "value": 830155172
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:11.675085",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "adolescence",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "adolescence son dakika",
+          "value": 2675405166
+        },
+        {
+          "query": "adolescence güncel",
+          "value": 3484747462
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-15T23:01:12.176144",
+    "success": true
+  }
+]

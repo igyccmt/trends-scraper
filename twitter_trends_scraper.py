@@ -229,6 +229,11 @@ def save_to_csv(trends, filename="twitter_trends.csv"):
             ])
     return filename
 
+from sports_filter import SportsFilter  # adjust path if needed
+
+# Global filter instance
+sports_filter = SportsFilter()
+
 if __name__ == "__main__":
     print("=" * 60)
     print("TWITTER TRENDS SCRAPER (SELENIUM)")
@@ -237,16 +242,27 @@ if __name__ == "__main__":
     if not os.getenv('TWITTER_USERNAME') or not os.getenv('TWITTER_PASSWORD'):
         print("⚠️ Warning: Missing Twitter credentials in .env")
 
-    trends = scrape_twitter_trends()
+trends = scrape_twitter_trends()
     if trends:
-        json_file = save_twitter_trends(trends)
-        print(f"✓ Trends saved to {json_file}")
-        csv_file = save_to_csv(trends)
-        print(f"✓ Trends appended to {csv_file}")
+        print(f"✓ Raw {len(trends)} Twitter trends scraped")
 
-        print(f"\nTop {min(10, len(trends))} Twitter trends:")
-        for t in trends[:10]:
+        # Apply sports filter
+        print("\nFiltering sports-related Twitter trends...")
+        filtered_trends = sports_filter.filter_sports_topics(trends)
+
+        stats = sports_filter.get_filter_stats(trends)
+        print(f"   Filter stats: {stats}")
+        print(f"   {len(filtered_trends)} trends remain after filtering")
+
+        # Save only non-sports trends
+        json_file = save_twitter_trends(filtered_trends)
+        print(f"✓ Filtered trends saved to {json_file}")
+        csv_file = save_to_csv(filtered_trends)
+        print(f"✓ Filtered trends appended to {csv_file}")
+
+        # Show sample
+        print(f"\nTop {min(10, len(filtered_trends))} Twitter trends (non-sports):")
+        for t in filtered_trends[:10]:
             print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
     else:
         print("❌ No trends found or error occurred")
-

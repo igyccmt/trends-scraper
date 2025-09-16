@@ -228,6 +228,11 @@ def push_to_github():
     except Exception as e:
         print(f"✗ Git push failed: {e}")
 
+from sports_filter import SportsFilter  # adjust path if needed
+
+# Global filter instance
+sports_filter = SportsFilter()
+
 def main():
     """Main execution function"""
     print("=" * 60)
@@ -246,6 +251,21 @@ def main():
     print("\n3. Trendler temizleniyor...")
     cleaned_trends = clean_trends_data(raw_trends)
 
+    # Apply sports filter
+    print("\n4.1 Spor filtrelemesi uygulanıyor...")
+    filtered_trends = sports_filter.filter_sports_topics(cleaned_trends)
+
+    stats = sports_filter.get_filter_stats(cleaned_trends)
+    print(f"   Filtre istatistikleri: {stats}")
+
+    print(f"4.2 Filtrelenmiş trendler ({len(filtered_trends)}):")
+    for i, trend in enumerate(filtered_trends, 1):
+        print(f"   {i:2d}. {trend}")
+
+    # Generate related queries on filtered trends
+    print("\n5. İlgili aramalar oluşturuluyor...")
+    all_trends_data = []
+    for i, trend in enumerate(filtered_trends[:15], 1):
     print(f"4. Temizlenmiş trendler ({len(cleaned_trends)}):")
     for i, trend in enumerate(cleaned_trends, 1):
         print(f"   {i:2d}. {trend}")
