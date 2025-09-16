@@ -116,7 +116,6 @@ async def scrape_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                             total_count = int(parts[1].strip())
                     except (ValueError, IndexError):
                         pass
-                
                 # Look for "SUCCESS_COUNT:" pattern (English format)
                 if "SUCCESS_COUNT:" in line:
                     try:
@@ -193,8 +192,68 @@ Data has been saved to files.
     except Exception as e:
         await message.edit_text(f"❌ *Unexpected error!*\n\n{str(e)}", parse_mode='Markdown')
 
+def git_push(commit_message="Update Twitter trends"):
+    """Push changes to GitHub with better error handling"""
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        os.chdir(script_dir)
+        
+        # Configure git user (important for automated pushes)
+        subprocess.run(["git", "config", "user.name", "GitHub Actions Bot"], check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.email", "actions@users.noreply.github.com"], check=True, capture_output=True)
+        
+        # Add all relevant files
+        subprocess.run(["git", "add", "twitter_trends.csv"], check=True, capture_output=True)
+        subprocess.run(["git", "add", "*.json"], check=True, capture_output=True)
+        
+        # Check for changes more reliably
+        result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+        
+        if result.stdout.strip():
+            # Commit
+            commit_result = subprocess.run(
+                ["git", "commit", "-m", commit_message], 
+                capture_output=True, 
+                text=True, 
+                check=True
+            )
+            print(f"✓ Commit: {commit_result.stdout}")
+            
+            # Push with retry logic
+            try:
+                push_result = subprocess.run(
+                    ["git", "push", "origin", "main"], 
+                    capture_output=True, 
+                    text=True, 
+                    check=True,
+                    timeout=30
+                )
+                print("✅ Data pushed to GitHub successfully")
+                return True
+            except subprocess.TimeoutExpired:
+                print("⚠️ Git push timed out, retrying...")
+                push_result = subprocess.run(
+                    ["git", "push", "origin", "main"], 
+                    capture_output=True, 
+                    text=True, 
+                    check=True
+                )
+                print("✅ Data pushed to GitHub after retry")
+                return True
+        else:
+            print("ℹ️ No changes to commit")
+            return False
+            
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Git command failed: {e}")
+        print(f"Stderr: {e.stderr.decode() if e.stderr else 'None'}")
+        return False
+    except Exception as e:
+        print(f"❌ Unexpected git error: {e}")
+        return False
+
 async def xtrends_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Run Twitter/X scraper and show results"""
+    """Run Twitter/X scraper and show results with GitHub status"""
     user_id = update.effective_user.id
     if AUTHORIZED_USERS and user_id not in AUTHORIZED_USERS:
         await update.message.reply_text("❌ You are not authorized to use this bot.")
@@ -215,16 +274,30 @@ async def xtrends_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             for t in trends[:10]
         ]
         result_text = "📊 *Top Twitter/X Trends:*\n\n" + "\n".join(result_lines)
+        result_text += "\n\n✅ Data saved locally"
 
         await message.edit_text(result_text, parse_mode="Markdown")
+        
+        # Send separate message for GitHub status
+        github_message = await update.message.reply_text("🔄 Attempting to push to GitHub...")
+        
+        # Call git_push directly
+        git_success = git_push("Auto-update Twitter trends from Telegram bot")
+        if git_success:
+            await github_message.edit_text("✅ Successfully pushed to GitHub!")
+        else:
+            await github_message.edit_text("❌ Failed to push to GitHub. Check server logs for details.")
     
     except Exception as e:
-        await message.edit_text(f"❌ Error scraping Twitter trends:\n{str(e)}")
+        error_msg = f"❌ Error scraping Twitter trends:\n{str(e)}"
+        await message.edit_text(error_msg)
+        logger.error(f"Twitter scraper error: {e}")
 
 async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Check the status of the scraper."""
     # Check if the CSV file exists and get its stats
     csv_exists = os.path.exists("trends.csv")
+    twitter_csv_exists = os.path.exists("twitter_trends.csv")
     status_info = ""
     
     if csv_exists:
@@ -232,17 +305,43 @@ async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Get file modification time
             mod_time = os.path.getmtime("trends.csv")
             mod_date = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
-            status_info = f"• Last update: {mod_date}\n"
+            status_info += f"• Google Trends - Last update: {mod_date}\n"
             
             # Count lines in the CSV file
             with open("trends.csv", "r", encoding="utf-8") as f:
                 line_count = sum(1 for line in f) - 1  # Subtract header row
             
-            status_info += f"• Total records: {line_count}\n"
+            status_info += f"• Google Trends - Total records: {line_count}\n"
         except Exception as e:
-            status_info = f"• Error reading file: {str(e)}\n"
+            status_info += f"• Google Trends - Error reading file: {str(e)}\n"
     else:
-        status_info = "• No data found\n"
+        status_info += "• Google Trends - No data found\n"
+    
+    if twitter_csv_exists:
+        try:
+            # Get file modification time
+            mod_time = os.path.getmtime("twitter_trends.csv")
+            mod_date = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
+            status_info += f"• Twitter Trends - Last update: {mod_date}\n"
+            
+            # Count lines in the CSV file
+            with open("twitter_trends.csv", "r", encoding="utf-8") as f:
+                line_count = sum(1 for line in f) - 1  # Subtract header row
+            
+            status_info += f"• Twitter Trends - Total records: {line_count}\n"
+        except Exception as e:
+            status_info += f"• Twitter Trends - Error reading file: {str(e)}\n"
+    else:
+        status_info += "• Twitter Trends - No data found\n"
+    
+    # Check for JSON files
+    json_files = [f for f in os.listdir('.') if f.startswith('twitter_trends_') and f.endswith('.json')]
+    if json_files:
+        json_files.sort(reverse=True)
+        latest_json = json_files[0]
+        mod_time = os.path.getmtime(latest_json)
+        mod_date = datetime.fromtimestamp(mod_time).strftime('%Y-%m-%d %H:%M:%S')
+        status_info += f"• Latest JSON: {latest_json} ({mod_date})\n"
     
     status_text = f"""
 📊 *Scraper Status*
@@ -260,10 +359,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     if text in ['run', 'scrape', 'start scraping']:
         await scrape_command(update, context)
-    elif text in ['x', 'xtrends', 'twitter']:
+    elif text in ['x', 'xtrends', 'twitter', 'twitter trends']:
         await xtrends_command(update, context)
-    elif text in ['hi', 'hello', 'hey']:
-        await update.message.reply_text("Hello! Use /scrape for Google Trends or /xtrends for Twitter/X. 👋")
+    elif text in ['status', 'check status']:
+        await status_command(update, context)
+    elif text in ['hi', 'hello', 'hey', 'start']:
+        await start(update, context)
+    elif text in ['help', 'commands']:
+        await help_command(update, context)
     else:
         await update.message.reply_text("I don't understand that command. Use /help to see available commands.")
 
@@ -282,6 +385,8 @@ def main():
 
     # Start the bot
     print("Starting bot...")
+    print(f"Bot token: {'Found' if BOT_TOKEN else 'Missing'}")
+    print(f"Authorized users: {AUTHORIZED_USERS}")
     application.run_polling()
 
 if __name__ == '__main__':
