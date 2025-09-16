@@ -266,7 +266,7 @@ def main():
     print("\n5. İlgili aramalar oluşturuluyor...")
     all_trends_data = []
     for i, trend in enumerate(filtered_trends[:15], 1):
-    print(f"4. Temizlenmiş trendler ({len(cleaned_trends)}):")
+        print(f"4. Temizlenmiş trendler ({len(cleaned_trends)}):")
     for i, trend in enumerate(cleaned_trends, 1):
         print(f"   {i:2d}. {trend}")
 
