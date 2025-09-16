@@ -245,7 +245,6 @@ from sports_filter import SportsFilter  # adjust path if needed
 
 # Global filter instance
 sports_filter = SportsFilter()
-
 if __name__ == "__main__":
     print("=" * 60)
     print("TWITTER TRENDS SCRAPER (SELENIUM)")
@@ -254,7 +253,7 @@ if __name__ == "__main__":
     if not os.getenv('TWITTER_USERNAME') or not os.getenv('TWITTER_PASSWORD'):
         print("⚠️ Warning: Missing Twitter credentials in .env")
 
-trends = scrape_twitter_trends()
+    trends = scrape_twitter_trends()
     if trends:
         print(f"✓ Raw {len(trends)} Twitter trends scraped")
 
@@ -271,8 +270,22 @@ trends = scrape_twitter_trends()
         print(f"✓ Filtered trends saved to {json_file}")
         csv_file = save_to_csv(filtered_trends)
         print(f"✓ Filtered trends appended to {csv_file}")
-        
-        # Push changes to GitHub (same style as Google Trends script)
+
+        # Show sample
+        print(f"\nTop {min(10, len(filtered_trends))} Twitter trends (non-sports):")
+        for t in filtered_trends[:10]:
+            print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
+
+        # === DEBUG: check working dir and git status ===
+        print("\n--- DEBUG INFO ---")
+        print("📂 Current working dir:", os.getcwd())
+        try:
+            subprocess.run(["git", "status"], check=True)
+            subprocess.run(["git", "remote", "-v"], check=True)
+        except Exception as e:
+            print(f"⚠️ Git status failed: {e}")
+
+        # === Push to GitHub ===
         try:
             subprocess.run(["git", "add", "twitter_trends.csv"], check=True)
             subprocess.run(["git", "add", "*.json"], check=True)
@@ -281,12 +294,6 @@ trends = scrape_twitter_trends()
             print("✅ Changes pushed to GitHub")
         except subprocess.CalledProcessError as e:
             print(f"❌ Git push failed: {e}")
-
-
-        # Show sample
-        print(f"\nTop {min(10, len(filtered_trends))} Twitter trends (non-sports):")
-        for t in filtered_trends[:10]:
-            print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
     else:
         print("❌ No trends found or error occurred")
-    git_push("Auto Update on Twitter Trends")
+
