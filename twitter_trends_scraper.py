@@ -160,67 +160,7 @@ def parse_trend_block(block, rank):
         trend["url"] = f"https://twitter.com/search?q={q}"
 
     return trend
-
-def git_push(commit_message="Update Twitter trends"):
-    """Push changes to GitHub with better error handling"""
-    try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        os.chdir(script_dir)
         
-        # Configure git user (important for automated pushes)
-        subprocess.run(["git", "config", "user.name", "GitHub Actions Bot"], check=True, capture_output=True)
-        subprocess.run(["git", "config", "user.email", "actions@users.noreply.github.com"], check=True, capture_output=True)
-        
-        # Add all relevant files
-        subprocess.run(["git", "add", "twitter_trends.csv"], check=True, capture_output=True)
-        subprocess.run(["git", "add", "*.json"], check=True, capture_output=True)
-        
-        # Check for changes more reliably
-        result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
-        
-        if result.stdout.strip():
-            # Commit
-            commit_result = subprocess.run(
-                ["git", "commit", "-m", commit_message], 
-                capture_output=True, 
-                text=True, 
-                check=True
-            )
-            print(f"✓ Commit: {commit_result.stdout}")
-            
-            # Push with retry logic
-            try:
-                push_result = subprocess.run(
-                    ["git", "push", "origin", "main"], 
-                    capture_output=True, 
-                    text=True, 
-                    check=True,
-                    timeout=30
-                )
-                print("✅ Data pushed to GitHub successfully")
-                return True
-            except subprocess.TimeoutExpired:
-                print("⚠️ Git push timed out, retrying...")
-                push_result = subprocess.run(
-                    ["git", "push", "origin", "main"], 
-                    capture_output=True, 
-                    text=True, 
-                    check=True
-                )
-                print("✅ Data pushed to GitHub after retry")
-                return True
-        else:
-            print("ℹ️ No changes to commit")
-            return False
-            
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Git command failed: {e}")
-        print(f"Stderr: {e.stderr.decode() if e.stderr else 'None'}")
-        return False
-    except Exception as e:
-        print(f"❌ Unexpected git error: {e}")
-        return False
-
 def save_twitter_trends(trends, filename=None):
     """Save Twitter trends to JSON file"""
     if not filename:
@@ -230,10 +170,11 @@ def save_twitter_trends(trends, filename=None):
         json.dump(data, f, ensure_ascii=False, indent=2)
     return filename
 
+
 def save_to_csv(trends, filename="twitter_trends.csv"):
-    """Save Twitter trends to CSV file"""
+    """Save Twitter trends to CSV file (local only)"""
     file_exists = os.path.isfile(filename)
-    print(f"➡️ Saving {len(trends)} trends to {os.path.abspath(filename)} (file exists? {file_exists})")
+    print(f"➡️ Saving {len(trends)} trends to {os.path.abspath(filename)}")
 
     with open(filename, "a", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
@@ -304,9 +245,6 @@ def scrape_twitter_trends():
         csv_file = save_to_csv(filtered_trends)
         print(f"✓ Filtered trends appended to {csv_file}")
 
-        # Push to GitHub
-        git_push_success = git_push("Auto-update Twitter trends (non-sports)")
-        
         return filtered_trends
         
     except Exception as e:
@@ -332,4 +270,5 @@ if __name__ == "__main__":
             print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
     else:
         print("❌ No trends found or error occurred")
+
 

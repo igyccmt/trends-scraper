@@ -38,7 +38,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❌ You are not authorized to use this bot.")
         return
     
-    keyboard = [['/scrape', '/xtrends', '/status'], ['/help']]
+    keyboard = [['/scrape', '/xtrends', '/status'], ['/help', '/push']]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     
     welcome_text = """
@@ -48,6 +48,7 @@ Available commands:
 • /scrape - Run the Google Trends scraper
 • /xtrends - Run the Twitter/X trends scraper
 • /status - Check scraper status
+• /push - Push latest data to GitHub
 • /help - Show this help message
 
 Click the buttons below or type commands directly.
@@ -68,9 +69,10 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 • /scrape - Run the Google Trends scraper
 • /xtrends - Run the Twitter/X trends scraper
 • /status - Check the status of the last scrape
+• /push - Push latest data to GitHub
 • /help - Show this help message
 
-The scrapers will collect trending queries from Google Trends and Twitter/X and save them to files.
+The scrapers will collect trending queries from Google Trends and Twitter/X and save them to files locally.
     """
     await update.message.reply_text(help_text, parse_mode='Markdown')
 
@@ -192,7 +194,7 @@ Data has been saved to files.
     except Exception as e:
         await message.edit_text(f"❌ *Unexpected error!*\n\n{str(e)}", parse_mode='Markdown')
 
-def git_push(commit_message="Update Twitter trends"):
+def git_push(commit_message="Update trends data"):
     """Push changes to GitHub with better error handling"""
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -204,6 +206,7 @@ def git_push(commit_message="Update Twitter trends"):
         
         # Add all relevant files
         subprocess.run(["git", "add", "twitter_trends.csv"], check=True, capture_output=True)
+        subprocess.run(["git", "add", "trends.csv"], check=True, capture_output=True)
         subprocess.run(["git", "add", "*.json"], check=True, capture_output=True)
         
         # Check for changes more reliably
@@ -229,7 +232,7 @@ def git_push(commit_message="Update Twitter trends"):
                     timeout=30
                 )
                 print("✅ Data pushed to GitHub successfully")
-                return True
+                return True, "Successfully pushed to GitHub!"
             except subprocess.TimeoutExpired:
                 print("⚠️ Git push timed out, retrying...")
                 push_result = subprocess.run(
@@ -239,21 +242,38 @@ def git_push(commit_message="Update Twitter trends"):
                     check=True
                 )
                 print("✅ Data pushed to GitHub after retry")
-                return True
+                return True, "Successfully pushed to GitHub after retry!"
         else:
             print("ℹ️ No changes to commit")
-            return False
+            return False, "No changes to commit"
             
     except subprocess.CalledProcessError as e:
-        print(f"❌ Git command failed: {e}")
-        print(f"Stderr: {e.stderr.decode() if e.stderr else 'None'}")
-        return False
+        error_msg = f"❌ Git command failed: {e.stderr.decode() if e.stderr else str(e)}"
+        print(error_msg)
+        return False, error_msg
     except Exception as e:
-        print(f"❌ Unexpected git error: {e}")
-        return False
+        error_msg = f"❌ Unexpected git error: {e}"
+        print(error_msg)
+        return False, error_msg
+
+async def push_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Push latest data to GitHub"""
+    user_id = update.effective_user.id
+    if AUTHORIZED_USERS and user_id not in AUTHORIZED_USERS:
+        await update.message.reply_text("❌ You are not authorized to use this bot.")
+        return
+    
+    message = await update.message.reply_text("🔄 Checking for changes and pushing to GitHub...")
+    
+    success, result_message = git_push("Auto-update trends data from Telegram bot")
+    
+    if success:
+        await message.edit_text(f"✅ {result_message}")
+    else:
+        await message.edit_text(f"❌ {result_message}")
 
 async def xtrends_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Run Twitter/X scraper and show results with GitHub status"""
+    """Run Twitter/X scraper and show results"""
     user_id = update.effective_user.id
     if AUTHORIZED_USERS and user_id not in AUTHORIZED_USERS:
         await update.message.reply_text("❌ You are not authorized to use this bot.")
@@ -274,19 +294,17 @@ async def xtrends_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             for t in trends[:10]
         ]
         result_text = "📊 *Top Twitter/X Trends:*\n\n" + "\n".join(result_lines)
-        result_text += "\n\n✅ Data saved locally"
+        result_text += f"\n\n✅ Saved {len(trends)} trends to local CSV file"
 
         await message.edit_text(result_text, parse_mode="Markdown")
         
-        # Send separate message for GitHub status
-        github_message = await update.message.reply_text("🔄 Attempting to push to GitHub...")
-        
-        # Call git_push directly
-        git_success = git_push("Auto-update Twitter trends from Telegram bot")
-        if git_success:
-            await github_message.edit_text("✅ Successfully pushed to GitHub!")
-        else:
-            await github_message.edit_text("❌ Failed to push to GitHub. Check server logs for details.")
+        # Offer to push to GitHub
+        keyboard = [['/push']]
+        reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+        await update.message.reply_text(
+            "💾 Data saved locally. Use /push to upload to GitHub.",
+            reply_markup=reply_markup
+        )
     
     except Exception as e:
         error_msg = f"❌ Error scraping Twitter trends:\n{str(e)}"
@@ -347,7 +365,7 @@ async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 📊 *Scraper Status*
 
 {status_info}
-• GitHub: Check your repository for updates
+• Use /push to upload latest data to GitHub
 
 Use /scrape to run Google Trends scraper or /xtrends for Twitter/X trends.
     """
@@ -363,6 +381,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await xtrends_command(update, context)
     elif text in ['status', 'check status']:
         await status_command(update, context)
+    elif text in ['push', 'upload', 'github']:
+        await push_command(update, context)
     elif text in ['hi', 'hello', 'hey', 'start']:
         await start(update, context)
     elif text in ['help', 'commands']:
@@ -381,6 +401,7 @@ def main():
     application.add_handler(CommandHandler("scrape", scrape_command))
     application.add_handler(CommandHandler("xtrends", xtrends_command))
     application.add_handler(CommandHandler("status", status_command))
+    application.add_handler(CommandHandler("push", push_command))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     # Start the bot
