@@ -13,9 +13,14 @@ import csv
 import os
 import re
 from dotenv import load_dotenv
+import subprocess
+from sports_filter import SportsFilter  # adjust path if needed
 
 # Load environment variables from .env file
 load_dotenv()
+
+# Global filter instance
+sports_filter = SportsFilter()
 
 def setup_driver():
     """Setup Chrome driver with options"""
@@ -131,7 +136,7 @@ def parse_trend_block(block, rank):
     except:
         pass
 
-    # Name (first span that’s not label or posts)
+    # Name (first span that's not label or posts)
     # Name (skip ranks like "1", "2", "·")
     try:
         spans = block.find_elements(By.XPATH, ".//span")
@@ -156,8 +161,65 @@ def parse_trend_block(block, rank):
 
     return trend
 
+def git_push(commit_message="Update Twitter trends"):
+    """Push changes to GitHub"""
+    try:
+        # Navigate to the script directory to ensure git operations work
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        os.chdir(script_dir)
+        
+        subprocess.run(["git", "add", "twitter_trends.csv"], check=True, capture_output=True)
+        subprocess.run(["git", "add", "*.json"], check=True, capture_output=True)
+        
+        # Check if there are changes to commit
+        result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if result.stdout.strip():
+            subprocess.run(["git", "commit", "-m", commit_message], check=True, capture_output=True)
+            subprocess.run(["git", "push", "origin", "main"], check=True, capture_output=True)
+            print("✅ Data pushed to GitHub")
+            return True
+        else:
+            print("ℹ️ No changes to commit")
+            return False
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Git push failed: {e}")
+        return False
+    except Exception as e:
+        print(f"❌ Git error: {e}")
+        return False
+
+def save_twitter_trends(trends, filename=None):
+    """Save Twitter trends to JSON file"""
+    if not filename:
+        filename = f"twitter_trends_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
+    data = {"scraped_at": datetime.now().isoformat(), "source": "Twitter Web", "trends": trends}
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return filename
+
+def save_to_csv(trends, filename="twitter_trends.csv"):
+    """Save Twitter trends to CSV file"""
+    file_exists = os.path.isfile(filename)
+    print(f"➡️ Saving {len(trends)} trends to {os.path.abspath(filename)} (file exists? {file_exists})")
+
+    with open(filename, "a", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        if not file_exists:
+            writer.writerow(["timestamp", "rank", "label", "name", "posts", "tweet_count", "url"])
+        for trend in trends:
+            writer.writerow([
+                datetime.now().isoformat(),
+                trend.get("rank", 0),
+                trend.get("label", ""),
+                trend.get("name", ""),
+                trend.get("posts", ""),
+                trend.get("tweetCount", 0),
+                trend.get("url", "")
+            ])
+    return filename
+
 def scrape_twitter_trends():
-    """Scrape Twitter trending topics using Selenium"""
+    """Scrape Twitter trending topics using Selenium and return filtered trends"""
     print("Scraping Twitter trends using Selenium...")
     driver, trends = None, []
 
@@ -194,69 +256,7 @@ def scrape_twitter_trends():
                 continue
 
         print(f"Successfully extracted {len(trends)} trends")
-        return trends
-    finally:
-        if driver:
-            driver.quit()
-
-def save_twitter_trends(trends, filename=None):
-    """Save Twitter trends to JSON file"""
-    if not filename:
-        filename = f"twitter_trends_{datetime.now().strftime('%Y%m%d_%H%M')}.json"
-    data = {"scraped_at": datetime.now().isoformat(), "source": "Twitter Web", "trends": trends}
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    return filename
-
-def save_to_csv(trends, filename="twitter_trends.csv"):
-    """Save Twitter trends to CSV file"""
-    file_exists = os.path.isfile(filename)
-    print(f"➡️ Saving {len(trends)} trends to {os.path.abspath(filename)} (file exists? {file_exists})")
-
-    with open(filename, "a", newline="", encoding="utf-8") as csvfile:
-        writer = csv.writer(csvfile)
-        if not file_exists:
-            writer.writerow(["timestamp", "rank", "label", "name", "posts", "tweet_count", "url"])
-        for trend in trends:
-            writer.writerow([
-                datetime.now().isoformat(),
-                trend.get("rank", 0),
-                trend.get("label", ""),
-                trend.get("name", ""),
-                trend.get("posts", ""),
-                trend.get("tweetCount", 0),
-                trend.get("url", "")
-            ])
-    return filename
-
-import subprocess
-
-def git_push(commit_message="Update Twitter trends"):
-    try:
-        subprocess.run(["git", "add", "twitter_trends.csv"], check=True)
-        subprocess.run(["git", "add", "*.json"], check=True)  # optional: add JSON too
-        subprocess.run(["git", "commit", "-m", commit_message], check=True)
-        subprocess.run(["git", "push", "origin", "main"], check=True)
-        print("✅ Data pushed to GitHub")
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Git push failed: {e}")
-
-from sports_filter import SportsFilter  # adjust path if needed
-
-# Global filter instance
-sports_filter = SportsFilter()
-if __name__ == "__main__":
-    print("=" * 60)
-    print("TWITTER TRENDS SCRAPER (SELENIUM)")
-    print("=" * 60)
-
-    if not os.getenv('TWITTER_USERNAME') or not os.getenv('TWITTER_PASSWORD'):
-        print("⚠️ Warning: Missing Twitter credentials in .env")
-
-    trends = scrape_twitter_trends()
-    if trends:
-        print(f"✓ Raw {len(trends)} Twitter trends scraped")
-
+        
         # Apply sports filter
         print("\nFiltering sports-related Twitter trends...")
         filtered_trends = sports_filter.filter_sports_topics(trends)
@@ -271,29 +271,31 @@ if __name__ == "__main__":
         csv_file = save_to_csv(filtered_trends)
         print(f"✓ Filtered trends appended to {csv_file}")
 
+        # Push to GitHub
+        git_push_success = git_push("Auto-update Twitter trends (non-sports)")
+        
+        return filtered_trends
+        
+    except Exception as e:
+        print(f"Error in scrape_twitter_trends: {e}")
+        return []
+    finally:
+        if driver:
+            driver.quit()
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("TWITTER TRENDS SCRAPER (SELENIUM)")
+    print("=" * 60)
+
+    if not os.getenv('TWITTER_USERNAME') or not os.getenv('TWITTER_PASSWORD'):
+        print("⚠️ Warning: Missing Twitter credentials in .env")
+
+    trends = scrape_twitter_trends()
+    if trends:
         # Show sample
-        print(f"\nTop {min(10, len(filtered_trends))} Twitter trends (non-sports):")
-        for t in filtered_trends[:10]:
+        print(f"\nTop {min(10, len(trends))} Twitter trends (non-sports):")
+        for t in trends[:10]:
             print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
-
-        # === DEBUG: check working dir and git status ===
-        print("\n--- DEBUG INFO ---")
-        print("📂 Current working dir:", os.getcwd())
-        try:
-            subprocess.run(["git", "status"], check=True)
-            subprocess.run(["git", "remote", "-v"], check=True)
-        except Exception as e:
-            print(f"⚠️ Git status failed: {e}")
-
-        # === Push to GitHub ===
-        try:
-            subprocess.run(["git", "add", "twitter_trends.csv"], check=True)
-            subprocess.run(["git", "add", "*.json"], check=True)
-            subprocess.run(["git", "commit", "-m", "Auto-update Twitter trends"], check=True)
-            subprocess.run(["git", "push", "origin", "main"], check=True)
-            print("✅ Changes pushed to GitHub")
-        except subprocess.CalledProcessError as e:
-            print(f"❌ Git push failed: {e}")
     else:
         print("❌ No trends found or error occurred")
-
