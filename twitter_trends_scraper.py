@@ -229,6 +229,18 @@ def save_to_csv(trends, filename="twitter_trends.csv"):
             ])
     return filename
 
+import subprocess
+
+def git_push(commit_message="Update Twitter trends"):
+    try:
+        subprocess.run(["git", "add", "twitter_trends.csv"], check=True)
+        subprocess.run(["git", "add", "*.json"], check=True)  # optional: add JSON too
+        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        print("✅ Data pushed to GitHub")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Git push failed: {e}")
+
 from sports_filter import SportsFilter  # adjust path if needed
 
 # Global filter instance
@@ -266,3 +278,4 @@ trends = scrape_twitter_trends()
             print(f"{t['rank']}. {t['name']} ({t.get('tweetCount','N/A')} tweets)")
     else:
         print("❌ No trends found or error occurred")
+    git_push("Auto Update on Twitter Trends")
