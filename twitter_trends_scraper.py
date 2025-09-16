@@ -271,6 +271,17 @@ trends = scrape_twitter_trends()
         print(f"✓ Filtered trends saved to {json_file}")
         csv_file = save_to_csv(filtered_trends)
         print(f"✓ Filtered trends appended to {csv_file}")
+        
+        # Push changes to GitHub (same style as Google Trends script)
+        try:
+            subprocess.run(["git", "add", "twitter_trends.csv"], check=True)
+            subprocess.run(["git", "add", "*.json"], check=True)
+            subprocess.run(["git", "commit", "-m", "Auto-update Twitter trends"], check=True)
+            subprocess.run(["git", "push", "origin", "main"], check=True)
+            print("✅ Changes pushed to GitHub")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Git push failed: {e}")
+
 
         # Show sample
         print(f"\nTop {min(10, len(filtered_trends))} Twitter trends (non-sports):")
