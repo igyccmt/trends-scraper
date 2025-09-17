@@ -1,0 +1,350 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "200 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 159783384019
+        },
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 156919231285
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:04.803719",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "özgü namal",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "özgü namal son dakika",
+          "value": 66379549631
+        },
+        {
+          "query": "özgü namal güncel",
+          "value": 50760396707
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:05.304766",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 24318694323
+        },
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 20106041966
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:05.805735",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt güncel",
+          "value": 9385272582
+        },
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 8812043539
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:06.306766",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 30272608877
+        },
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 36277928279
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:06.807778",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kdz. ereğli - bursaspor",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kdz. ereğli - bursaspor son dakika",
+          "value": 7642594566
+        },
+        {
+          "query": "kdz. ereğli - bursaspor güncel",
+          "value": 5507358160
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:07.308333",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "sampiyonlar ligi",
+      "volume": "200 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "sampiyonlar ligi son dakika",
+          "value": 84677419946
+        },
+        {
+          "query": "sampiyonlar ligi güncel",
+          "value": 127634226500
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:07.809484",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mourinho",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mourinho son dakika",
+          "value": 14016187059
+        },
+        {
+          "query": "mourinho güncel",
+          "value": 11960654314
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:08.310533",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "orkun özeller",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "orkun özeller son dakika",
+          "value": 3982791608
+        },
+        {
+          "query": "orkun özeller güncel",
+          "value": 2886803672
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:08.811674",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "a spor canlı",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "a spor canlı maç",
+          "value": 2881202468
+        },
+        {
+          "query": "a spor canlı son dakika",
+          "value": 2541985934
+        },
+        {
+          "query": "a spor canlı sonuç",
+          "value": 2522978276
+        },
+        {
+          "query": "a spor canlı skor",
+          "value": 2264598174
+        },
+        {
+          "query": "sonuç a spor canlı",
+          "value": 3709206834
+        }
+      ],
+      "rising": [
+        {
+          "query": "a spor canlı takım son dakika",
+          "value": 5738686815
+        },
+        {
+          "query": "haber a spor canlı haberleri",
+          "value": 4662303896
+        },
+        {
+          "query": "lig a spor canlı haberleri",
+          "value": 5495556081
+        },
+        {
+          "query": "a spor canlı lig son dakika",
+          "value": 5448407095
+        },
+        {
+          "query": "takım a spor canlı haberleri",
+          "value": 4966766313
+        }
+      ]
+    },
+    "timestamp": "2025-09-17T17:01:09.312959",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "dersimspor - şanlıurfaspor",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "dersimspor - şanlıurfaspor güncel",
+          "value": 1177497176
+        },
+        {
+          "query": "dersimspor - şanlıurfaspor son dakika",
+          "value": 928327547
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:09.814122",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "inter miami - seattle sounders",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "inter miami - seattle sounders güncel",
+          "value": 7264418662
+        },
+        {
+          "query": "inter miami - seattle sounders son dakika",
+          "value": 7585384011
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:10.315217",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "hakim savcı atamaları",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "hakim savcı atamaları son dakika",
+          "value": 1183394580
+        },
+        {
+          "query": "hakim savcı atamaları güncel",
+          "value": 1526984088
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:10.816105",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "fatih sultan mehmet",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "fatih sultan mehmet güncel",
+          "value": 3158401443
+        },
+        {
+          "query": "fatih sultan mehmet son dakika",
+          "value": 2101494358
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:11.317037",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "adalet bakanlığı promosyon",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "adalet bakanlığı promosyon güncel",
+          "value": 3189232685
+        },
+        {
+          "query": "adalet bakanlığı promosyon son dakika",
+          "value": 2332226357
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T17:01:11.818243",
+    "success": true
+  }
+]

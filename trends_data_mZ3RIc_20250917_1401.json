@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "500 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 292842738019
+        },
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 307825456017
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:04.335350",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford son dakika",
+          "value": 37399052559
+        },
+        {
+          "query": "robert redford güncel",
+          "value": 26405976676
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:04.836386",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 38316325407
+        },
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 36298131974
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:05.337450",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kıskanmak dizisi oyuncuları",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kıskanmak dizisi oyuncuları son dakika",
+          "value": 67254797182
+        },
+        {
+          "query": "kıskanmak dizisi oyuncuları güncel",
+          "value": 74667166998
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:05.838554",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 11435903345
+        },
+        {
+          "query": "emre bozkurt güncel",
+          "value": 14561392231
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:06.339173",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 14626890514
+        },
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 15905905189
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:06.840323",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 4059486963
+        },
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 5712528988
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:07.341485",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mourinho",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mourinho güncel",
+          "value": 7957713165
+        },
+        {
+          "query": "mourinho son dakika",
+          "value": 6778845593
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:07.842536",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "teknofest istanbul",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "teknofest istanbul güncel",
+          "value": 5829700842
+        },
+        {
+          "query": "teknofest istanbul son dakika",
+          "value": 6647441279
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:08.343630",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "orkun özeller",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "orkun özeller son dakika",
+          "value": 1095775273
+        },
+        {
+          "query": "orkun özeller güncel",
+          "value": 1281218744
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:08.844162",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "selahattin paşalı",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "selahattin paşalı son dakika",
+          "value": 3338162758
+        },
+        {
+          "query": "selahattin paşalı güncel",
+          "value": 2452050584
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:09.345120",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "inter miami - seattle sounders",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "inter miami - seattle sounders güncel",
+          "value": 3067070758
+        },
+        {
+          "query": "inter miami - seattle sounders son dakika",
+          "value": 3583686737
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:09.846319",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "adalet bakanlığı promosyon",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "adalet bakanlığı promosyon son dakika",
+          "value": 1182449315
+        },
+        {
+          "query": "adalet bakanlığı promosyon güncel",
+          "value": 1085316258
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:10.347403",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kral kaybederse son bölüm izle",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kral kaybederse son bölüm izle son dakika",
+          "value": 3253544550
+        },
+        {
+          "query": "kral kaybederse son bölüm izle güncel",
+          "value": 2328673169
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:10.848574",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 60856765699
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 48634999712
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T14:01:11.349729",
+    "success": true
+  }
+]

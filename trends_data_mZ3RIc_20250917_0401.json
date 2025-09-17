@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "200 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 138716207404
+        },
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 122232942080
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:03.914696",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 61385561489
+        },
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 63243682441
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:04.415722",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford güncel",
+          "value": 27313498861
+        },
+        {
+          "query": "robert redford son dakika",
+          "value": 39356029333
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:04.916930",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "özgü namal",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "özgü namal son dakika",
+          "value": 36417229294
+        },
+        {
+          "query": "özgü namal güncel",
+          "value": 25732537034
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:05.418023",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 71107548952
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 56140856876
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:05.919161",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 5750714530
+        },
+        {
+          "query": "emre bozkurt güncel",
+          "value": 4603821621
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:06.420325",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus güncel",
+          "value": 33005652341
+        },
+        {
+          "query": "juventus son dakika",
+          "value": 21191027471
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:06.921470",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "tottenham - villarreal",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "tottenham - villarreal güncel",
+          "value": 15637974924
+        },
+        {
+          "query": "tottenham - villarreal son dakika",
+          "value": 12181265236
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:07.422350",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 7543544353
+        },
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 5224064965
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:07.923100",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "الريال ضد أولمبيك مارسيليا",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "الريال ضد أولمبيك مارسيليا güncel",
+          "value": 5350205244
+        },
+        {
+          "query": "الريال ضد أولمبيك مارسيليا son dakika",
+          "value": 4765163379
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:08.424217",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "asgari ücret zammı 2026",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "asgari ücret zammı 2026 güncel",
+          "value": 3760256020
+        },
+        {
+          "query": "asgari ücret zammı 2026 son dakika",
+          "value": 3927995427
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:08.925349",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "dortmund",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "dortmund güncel",
+          "value": 5892098001
+        },
+        {
+          "query": "dortmund son dakika",
+          "value": 4906750479
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:09.426458",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "fatih sultan mehmet",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "fatih sultan mehmet son dakika",
+          "value": 3287340805
+        },
+        {
+          "query": "fatih sultan mehmet güncel",
+          "value": 3142014289
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:09.927530",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ozan canyürek",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ozan canyürek güncel",
+          "value": 1088187579
+        },
+        {
+          "query": "ozan canyürek son dakika",
+          "value": 1427946103
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:10.428646",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 5093314177
+        },
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 6386850665
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T04:01:10.929923",
+    "success": true
+  }
+]

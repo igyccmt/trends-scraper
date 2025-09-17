@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "500 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 203408898414
+        },
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 351367687547
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:07.810297",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford güncel",
+          "value": 36352282149
+        },
+        {
+          "query": "robert redford son dakika",
+          "value": 21465958658
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:08.311290",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 34824499283
+        },
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 22825413129
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:08.811923",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kıskanmak dizisi oyuncuları",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kıskanmak dizisi oyuncuları güncel",
+          "value": 65521823657
+        },
+        {
+          "query": "kıskanmak dizisi oyuncuları son dakika",
+          "value": 71246046934
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:09.313067",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt güncel",
+          "value": 8468764094
+        },
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 10799152898
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:09.813990",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 11651374862
+        },
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 15497238851
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:10.314744",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "teknofest",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "teknofest son dakika",
+          "value": 9302983595
+        },
+        {
+          "query": "teknofest güncel",
+          "value": 11709730818
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:10.815747",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 4789807966
+        },
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 6659852601
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:11.316817",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mourinho",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mourinho son dakika",
+          "value": 7238979244
+        },
+        {
+          "query": "mourinho güncel",
+          "value": 7448223299
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:11.817728",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "tottenham - villarreal",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "tottenham - villarreal güncel",
+          "value": 7649347234
+        },
+        {
+          "query": "tottenham - villarreal son dakika",
+          "value": 6483032999
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:12.318815",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "inter miami - seattle sounders",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "inter miami - seattle sounders güncel",
+          "value": 3841291442
+        },
+        {
+          "query": "inter miami - seattle sounders son dakika",
+          "value": 3968043992
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:12.819529",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "champions league",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "champions league güncel",
+          "value": 4421437809
+        },
+        {
+          "query": "champions league son dakika",
+          "value": 5408465140
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:13.320233",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 40345594842
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 59225679014
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:13.821220",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "fatih sultan mehmet",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "fatih sultan mehmet güncel",
+          "value": 3468991418
+        },
+        {
+          "query": "fatih sultan mehmet son dakika",
+          "value": 3944851352
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:14.322270",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "afgan",
+      "volume": "1 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "afgan güncel",
+          "value": 552336107
+        },
+        {
+          "query": "afgan son dakika",
+          "value": 524874953
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T12:01:14.823222",
+    "success": true
+  }
+]

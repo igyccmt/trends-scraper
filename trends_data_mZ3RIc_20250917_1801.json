@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "200 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 147340316487
+        },
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 134750687765
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:13.070275",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "özgü namal",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "özgü namal güncel",
+          "value": 59734159349
+        },
+        {
+          "query": "özgü namal son dakika",
+          "value": 46449380867
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:13.570921",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 33926901874
+        },
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 29808198197
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:14.071570",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt güncel",
+          "value": 13220828781
+        },
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 12534727770
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:14.572012",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 37480123424
+        },
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 24982687195
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:15.072672",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mourinho",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mourinho güncel",
+          "value": 5896083600
+        },
+        {
+          "query": "mourinho son dakika",
+          "value": 6203383940
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:15.572986",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kdz. ereğli - bursaspor",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kdz. ereğli - bursaspor son dakika",
+          "value": 13099649579
+        },
+        {
+          "query": "kdz. ereğli - bursaspor güncel",
+          "value": 15669996124
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:16.073644",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "sampiyonlar ligi",
+      "volume": "200 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "sampiyonlar ligi son dakika",
+          "value": 123778176459
+        },
+        {
+          "query": "sampiyonlar ligi güncel",
+          "value": 136006200610
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:16.573989",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "orkun özeller",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "orkun özeller güncel",
+          "value": 2322634016
+        },
+        {
+          "query": "orkun özeller son dakika",
+          "value": 3321997647
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:17.074681",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "şiran yıldızspor",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "şiran yıldızspor son dakika",
+          "value": 906657806
+        },
+        {
+          "query": "şiran yıldızspor güncel",
+          "value": 1395411659
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:17.574989",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "safi arpaguş",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "safi arpaguş son dakika",
+          "value": 1279528915
+        },
+        {
+          "query": "safi arpaguş güncel",
+          "value": 996386749
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:18.075646",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "fatih sultan mehmet",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "fatih sultan mehmet son dakika",
+          "value": 2708148984
+        },
+        {
+          "query": "fatih sultan mehmet güncel",
+          "value": 3579841853
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:18.575974",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "dersimspor - şanlıurfaspor",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "dersimspor - şanlıurfaspor son dakika",
+          "value": 1473516524
+        },
+        {
+          "query": "dersimspor - şanlıurfaspor güncel",
+          "value": 1106071962
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:19.076638",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kral kaybederse son bölüm izle",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kral kaybederse son bölüm izle son dakika",
+          "value": 4913132504
+        },
+        {
+          "query": "kral kaybederse son bölüm izle güncel",
+          "value": 5986488212
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:19.576985",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "hakim savcı atamaları",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "hakim savcı atamaları güncel",
+          "value": 1329176200
+        },
+        {
+          "query": "hakim savcı atamaları son dakika",
+          "value": 1274038678
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T18:01:20.077635",
+    "success": true
+  }
+]

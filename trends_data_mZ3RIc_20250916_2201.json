@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "2025 uefa şampiyonlar ligi",
+      "volume": "1 Mn+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "2025 uefa şampiyonlar ligi güncel",
+          "value": 507
+        },
+        {
+          "query": "2025 uefa şampiyonlar ligi son dakika",
+          "value": 432
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:05.203153",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 74774120002
+        },
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 52099498225
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:05.704141",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "uefa champions league 2025",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "uefa champions league 2025 güncel",
+          "value": 36398320224
+        },
+        {
+          "query": "uefa champions league 2025 son dakika",
+          "value": 38772517684
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:06.205206",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "athletic bilbao - arsenal",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "athletic bilbao - arsenal güncel",
+          "value": 35890644677
+        },
+        {
+          "query": "athletic bilbao - arsenal son dakika",
+          "value": 35108859674
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:06.706353",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford güncel",
+          "value": 15520330765
+        },
+        {
+          "query": "robert redford son dakika",
+          "value": 9132191871
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:07.207490",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mehmet günsür",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mehmet günsür son dakika",
+          "value": 13223886681
+        },
+        {
+          "query": "mehmet günsür güncel",
+          "value": 12211046547
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:07.708654",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 4570144639
+        },
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 6056409669
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:08.209718",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "şampiyonlar ligi maçları hangi kanalda",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "şampiyonlar ligi maçları hangi kanalda son dakika",
+          "value": 13106220694
+        },
+        {
+          "query": "şampiyonlar ligi maçları hangi kanalda güncel",
+          "value": 11862064612
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:08.710154",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 7860600207
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 5844694690
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:09.211318",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "الريال ضد أولمبيك مارسيليا",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "الريال ضد أولمبيك مارسيليا son dakika",
+          "value": 3456612652
+        },
+        {
+          "query": "الريال ضد أولمبيك مارسيليا güncel",
+          "value": 3958820127
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:09.712490",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "uzak şehir 29",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "uzak şehir 29 son dakika",
+          "value": 9174731401
+        },
+        {
+          "query": "uzak şehir 29 güncel",
+          "value": 12005072565
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:10.213599",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "psv - union saint-gilloise",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "psv - union saint-gilloise son dakika",
+          "value": 2400872335
+        },
+        {
+          "query": "psv - union saint-gilloise güncel",
+          "value": 2508020757
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:10.714708",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 7110093295
+        },
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 7336555606
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:11.215820",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "hatayspor - erciyes 38",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "hatayspor - erciyes 38 son dakika",
+          "value": 3197226120
+        },
+        {
+          "query": "hatayspor - erciyes 38 güncel",
+          "value": 3382880670
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:11.717046",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "ışık ökte gözaltına alındı",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "ışık ökte gözaltına alındı son dakika",
+          "value": 15637093948
+        },
+        {
+          "query": "ışık ökte gözaltına alındı güncel",
+          "value": 9812355108
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-16T22:01:12.218225",
+    "success": true
+  }
+]

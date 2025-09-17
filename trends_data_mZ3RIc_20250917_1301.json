@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "500 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 296277238349
+        },
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 374444294179
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:04.583576",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford güncel",
+          "value": 33541764490
+        },
+        {
+          "query": "robert redford son dakika",
+          "value": 28916872008
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:05.084575",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 30108482083
+        },
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 30698448997
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:05.585725",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kıskanmak dizisi oyuncuları",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kıskanmak dizisi oyuncuları güncel",
+          "value": 35425808522
+        },
+        {
+          "query": "kıskanmak dizisi oyuncuları son dakika",
+          "value": 34710915004
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:06.086954",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt güncel",
+          "value": 8034861423
+        },
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 8375450941
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:06.588108",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 13146798856
+        },
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 13563220051
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:07.089242",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "teknofest istanbul",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "teknofest istanbul güncel",
+          "value": 8939325478
+        },
+        {
+          "query": "teknofest istanbul son dakika",
+          "value": 14682471606
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:07.590392",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 6211013204
+        },
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 4349316023
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:08.091504",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "mourinho",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "mourinho son dakika",
+          "value": 5734764900
+        },
+        {
+          "query": "mourinho güncel",
+          "value": 4798943321
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:08.592654",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "inter miami - seattle sounders",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "inter miami - seattle sounders güncel",
+          "value": 3130672827
+        },
+        {
+          "query": "inter miami - seattle sounders son dakika",
+          "value": 2857700339
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:09.093781",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "selahattin paşalı",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "selahattin paşalı son dakika",
+          "value": 3406154107
+        },
+        {
+          "query": "selahattin paşalı güncel",
+          "value": 2617189763
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:09.595036",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "orkun özeller",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "orkun özeller son dakika",
+          "value": 886875686
+        },
+        {
+          "query": "orkun özeller güncel",
+          "value": 802217943
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:10.096172",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 44984081477
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 42405864391
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:10.597123",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "adalet bakanlığı promosyon",
+      "volume": "2 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "adalet bakanlığı promosyon güncel",
+          "value": 983271545
+        },
+        {
+          "query": "adalet bakanlığı promosyon son dakika",
+          "value": 913200577
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:11.098259",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "şampiyonlar ligi özet",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "şampiyonlar ligi özet son dakika",
+          "value": 14111480873
+        },
+        {
+          "query": "şampiyonlar ligi özet güncel",
+          "value": 8954055878
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T13:01:11.599199",
+    "success": true
+  }
+]

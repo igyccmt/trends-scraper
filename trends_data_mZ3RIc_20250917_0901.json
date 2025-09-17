@@ -1,0 +1,317 @@
+[
+  {
+    "query": {
+      "query": "real madrid - marsilya",
+      "volume": "500 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid - marsilya son dakika",
+          "value": 349233333694
+        },
+        {
+          "query": "real madrid - marsilya güncel",
+          "value": 219913806986
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:03.744506",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus - borussia dortmund",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus - borussia dortmund güncel",
+          "value": 37716606621
+        },
+        {
+          "query": "juventus - borussia dortmund son dakika",
+          "value": 26667394946
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:04.245467",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "robert redford",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "robert redford son dakika",
+          "value": 28316881359
+        },
+        {
+          "query": "robert redford güncel",
+          "value": 22305541389
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:04.746615",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "real madrid",
+      "volume": "100 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "real madrid güncel",
+          "value": 53086262248
+        },
+        {
+          "query": "real madrid son dakika",
+          "value": 74885452410
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:05.247729",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "kıskanmak dizisi oyuncuları",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "kıskanmak dizisi oyuncuları son dakika",
+          "value": 28820741542
+        },
+        {
+          "query": "kıskanmak dizisi oyuncuları güncel",
+          "value": 24690830652
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:05.748840",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "emre bozkurt",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "emre bozkurt son dakika",
+          "value": 13032281259
+        },
+        {
+          "query": "emre bozkurt güncel",
+          "value": 11018073814
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:06.250101",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "athletic bilbao - arsenal",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "athletic bilbao - arsenal güncel",
+          "value": 24058659426
+        },
+        {
+          "query": "athletic bilbao - arsenal son dakika",
+          "value": 23237115415
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:06.751159",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "juventus",
+      "volume": "50 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "juventus son dakika",
+          "value": 33111901409
+        },
+        {
+          "query": "juventus güncel",
+          "value": 22850524747
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:07.252252",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "tottenham - villarreal",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "tottenham - villarreal güncel",
+          "value": 11094816681
+        },
+        {
+          "query": "tottenham - villarreal son dakika",
+          "value": 11456881558
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:07.753422",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "taylan kulaçoğlu",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "taylan kulaçoğlu son dakika",
+          "value": 6060528599
+        },
+        {
+          "query": "taylan kulaçoğlu güncel",
+          "value": 7934485108
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:08.254585",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "champions league",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "champions league güncel",
+          "value": 7236275036
+        },
+        {
+          "query": "champions league son dakika",
+          "value": 4417373380
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:08.755744",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "inter miami - seattle sounders",
+      "volume": "5 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "inter miami - seattle sounders güncel",
+          "value": 2807187535
+        },
+        {
+          "query": "inter miami - seattle sounders son dakika",
+          "value": 3999200449
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:09.256970",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "bahar son bölüm",
+      "volume": "20 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "bahar son bölüm son dakika",
+          "value": 14178515717
+        },
+        {
+          "query": "bahar son bölüm güncel",
+          "value": 10742485477
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:09.758143",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "dortmund",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "dortmund güncel",
+          "value": 6151860730
+        },
+        {
+          "query": "dortmund son dakika",
+          "value": 4919572552
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:10.259311",
+    "success": true
+  },
+  {
+    "query": {
+      "query": "psv - union saint-gilloise",
+      "volume": "10 B+"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "psv - union saint-gilloise son dakika",
+          "value": 4152226372
+        },
+        {
+          "query": "psv - union saint-gilloise güncel",
+          "value": 7712272426
+        }
+      ],
+      "rising": []
+    },
+    "timestamp": "2025-09-17T09:01:10.760469",
+    "success": true
+  }
+]
